@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="no_network">عُذرا , انت لست متصل باي شبكة نتورك حاليا </string>
+  <!-- BOTTOM NAVIGATION WORDS !-->
+  <string name="bottom_nav_home">الصفحة الرئيسية</string>
+  <string name="bottom_nav_matches">المباريات</string>
+  <string name="bottom_nav_fav">الفرق المُفضلة</string>
+  <string name="bottom_nav_leagues">الدوريات</string>
+
+  <!--LEAGUE NAMES !-->
+  <string name="champions_league">دوري أبطال أوروبا</string>
+  <string name="euro_champion">بطولة أوروبا</string>
+  <string name="premier_league">الدوري الانجليزي الممتاز</string>
+  <string name="championship">دوري الدرجة الاولي الانجليزي</string>
+  <string name="serie_a">الدوري الايطالي الممتاز</string>
+  <string name="la_liga">الدوري الاسباني الممتاز</string>
+  <string name="ligue_1">الدوري الفرنسي</string>
+  <string name="bundes_league">الدوري الالماني</string>
+  <string name="dutch_league">الدوري الهولندي</string>
+  <string name="portogues">الدوري البرتغالي</string>
+  <string name="brazil_league">الدوري البرازيلي</string>
+  <string name="language_change">ENGLISH LANGUAGE</string>
+
+  <!--Match Types !-->
+  <string name="league_week"> الاسبوع \u0020</string>
+  <string name="group_stage"> الجولة \u0020</string>
+  <string name="knock">الدور الاقصائي \u0020</string>
+  <string name="postponed">هذه المبارة قد تم <u>تأجيلها</u></string>
+
+  <!--Standing words !-->
+  <string name="played">لعب \n</string>
+  <string name="won">فاز \n</string>
+  <string name="draw">تعادل \n</string>
+  <string name="lost">خسر \n</string>
+  <string name="scored">اهداف مُسجلة \n</string>
+  <string name="conceded">اهداف عليه \n</string>
+  <string name="points">النقاط \n</string>
+  <string name="position">المركز \n</string>
+  <string name="goal_diff">فرق الأهداف \n</string>
+
+  <string name="gameweek">الاسبوع</string>
+  <string name="retry">أعد المحاولة</string>
+
+  <string name="next">التالي</string>
+  <string name="prev">السابق</string>
+
+</resources>

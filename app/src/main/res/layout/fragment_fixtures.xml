@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+  <com.pnikosis.materialishprogress.ProgressWheel
+      android:id="@+id/fixture_wheel"
+      android:layout_width="@dimen/progress_wheel_width"
+      android:layout_height="@dimen/progress_wheel_height"
+      android:layout_gravity="center"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:matProg_barColor="@color/darkBlue"
+      app:matProg_barWidth="@dimen/x_small_margin"
+      app:matProg_progressIndeterminate="true"/>
+
+  <ImageView
+      android:id="@+id/technical_error"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:contentDescription="@null"
+      android:src="@drawable/techncial_error"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  <Button
+      android:id="@+id/technical_error_btn"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/small_margin"
+      android:background="@drawable/btn_background"
+      android:drawableStart="@drawable/retry"
+      android:fontFamily="@font/fredoka_one"
+      android:padding="@dimen/large_padding"
+      android:paddingEnd="@dimen/medium_margin"
+      android:paddingStart="@dimen/medium_margin"
+      android:text="@string/retry"
+      android:textAlignment="center"
+      android:textColor="@color/whiteColor"
+      android:textSize="@dimen/medium_txt_size"
+      android:visibility="gone"
+      app:layout_constraintEnd_toEndOf="@+id/technical_error"
+      app:layout_constraintStart_toStartOf="@+id/technical_error"
+      app:layout_constraintTop_toBottomOf="@+id/technical_error"/>
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/fixture_list"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  <Button
+      android:id="@+id/next_fixture"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/small_margin"
+      android:background="@drawable/card_background"
+      android:fontFamily="@font/fredoka_one"
+      android:text="@string/next"
+      android:textColor="@color/blackColor"
+      app:layout_constraintEnd_toEndOf="@+id/fixture_list"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  <Button
+      android:id="@+id/prev_fixture"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/small_margin"
+      android:background="@drawable/card_background"
+      android:fontFamily="@font/fredoka_one"
+      android:padding="@dimen/medium_padding"
+      android:text="@string/prev"
+      android:textColor="@color/blackColor"
+      app:layout_constraintBottom_toBottomOf="@+id/next_fixture"
+      app:layout_constraintStart_toStartOf="@+id/fixture_list"
+      app:layout_constraintTop_toTopOf="@+id/next_fixture"/>
+
+</android.support.constraint.ConstraintLayout>

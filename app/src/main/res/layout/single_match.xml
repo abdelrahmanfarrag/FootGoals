@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <android.support.constraint.ConstraintLayout
+      android:id="@+id/match_container"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/darkRed">
+
+    <TextView
+        android:id="@+id/post_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/archivo_black"
+        android:text="@string/postponed"
+        android:textColor="@color/whiteColor"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha=".2"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"
+        android:src="@drawable/football_match"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/tournament_flag"
+        android:layout_width="@dimen/small_view_width"
+        android:layout_height="@dimen/small_view_height"
+        android:layout_marginStart="@dimen/large_margin"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/match_notify"
+        android:layout_width="@dimen/small_view_width"
+        android:layout_height="@dimen/small_view_height"
+        android:layout_marginEnd="@dimen/large_margin"
+        android:background="@drawable/league_ripple"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"
+        android:src="@drawable/white_bell"
+        app:layout_constraintBottom_toBottomOf="@+id/tournament_flag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tournament_flag"/>
+
+    <TextView
+        android:id="@+id/home_team_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/archivo_black"
+        android:padding="@dimen/small_padding"
+        android:textAlignment="center"
+        android:textColor="@color/whiteColor"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/match_day"/>
+
+    <TextView
+        android:id="@+id/away_team_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:layout_marginStart="@dimen/small_margin"
+        android:fontFamily="@font/archivo_black"
+        android:padding="@dimen/small_padding"
+        android:textAlignment="center"
+        android:textColor="@color/whiteColor"
+        app:layout_constraintBottom_toBottomOf="@+id/home_team_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/home_team_name"/>
+
+    <TextView
+        android:id="@+id/match_date"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:fontFamily="@font/archivo_black"
+        android:padding="@dimen/small_padding"
+        android:textColor="@color/blackColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/competiton_name"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/archivo_black"
+        android:padding="@dimen/small_padding"
+        android:textColor="@color/blackColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_goneMarginTop="@dimen/medium_margin"
+        app:layout_constraintTop_toBottomOf="@id/match_date"/>
+
+    <TextView
+        android:id="@+id/match_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/archivo_black"
+        android:padding="@dimen/small_padding"
+        android:textColor="@color/blackColor"
+        app:layout_constraintEnd_toEndOf="@+id/competiton_name"
+        app:layout_constraintStart_toStartOf="@+id/competiton_name"
+        app:layout_constraintTop_toBottomOf="@+id/competiton_name"/>
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="@dimen/score_sheet_width"
+        android:layout_height="@dimen/score_sheet_height"
+        android:layout_marginTop="@dimen/x_small_margin"
+        android:background="@drawable/result_background"
+        app:layout_constraintEnd_toEndOf="@+id/match_day"
+        app:layout_constraintStart_toStartOf="@+id/match_day"
+        app:layout_constraintTop_toBottomOf="@+id/match_day">
+
+      <android.support.constraint.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/home_team_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:fontFamily="@font/archivo_black"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/blackColor"
+            android:textSize="@dimen/large_txt_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/away_team_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/archivo_black"
+            android:padding="@dimen/small_padding"
+            android:textColor="@color/blackColor"
+            android:textSize="@dimen/large_txt_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+      </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+  </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

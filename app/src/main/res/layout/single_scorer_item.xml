@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="6dp"
+    android:elevation="20dp"
+    tools:ignore="UnusedAttribute">
+
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/top_scorer_number"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha=".2"
+        android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/medium_padding"
+        android:textAlignment="center"
+        android:textColor="@color/silverColor"
+        android:textSize="100sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/player_emblem"
+        android:layout_width="@dimen/progress_wheel_width"
+        android:layout_height="@dimen/large_view_height"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:layerType="software"
+        android:src="@drawable/spain"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/top_scorer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/blackColor"
+        android:textSize="@dimen/small_txt_size"
+        app:layout_constraintStart_toEndOf="@+id/player_emblem"
+        app:layout_constraintTop_toTopOf="@+id/player_emblem"/>
+
+    <TextView
+        android:id="@+id/top_scorer_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/medium_margin"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/blackColor"
+        android:textSize="@dimen/small_txt_size"
+        app:layout_constraintBottom_toBottomOf="@+id/player_emblem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/top_scorer_name"/>
+
+    <TextView
+        android:id="@+id/player_goals_scored"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:background="@color/silverColor"
+        android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/small_padding"
+        android:textAlignment="center"
+        android:textColor="@color/blackColor"
+        android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_scorer_team"/>
+
+    <TextView
+        android:id="@+id/player_shirt_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/small_margin"
+        android:background="@drawable/text_background"
+        android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/medium_padding"
+        android:textAlignment="center"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintStart_toEndOf="@+id/top_scorer_name"
+        app:layout_constraintTop_toTopOf="@+id/top_scorer_name"/>
+
+    <TextView
+        android:id="@+id/player_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/x_small_margin"
+        android:layout_marginTop="@dimen/x_small_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:textSize="@dimen/small_txt_size"
+        app:layout_constraintBottom_toTopOf="@+id/top_scorer_team"
+        app:layout_constraintStart_toStartOf="@+id/top_scorer_team"
+        app:layout_constraintTop_toBottomOf="@+id/player_shirt_num"/>
+
+    <TextView
+        android:id="@+id/scorer_pos"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:alpha=".6"
+        android:paddingTop="@dimen/small_margin"
+        android:textColor="@color/blackColor"
+        android:textSize="80sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:background="@color/blackColor"
+        app:layout_constraintTop_toBottomOf="@+id/player_goals_scored"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+  </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

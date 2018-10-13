@@ -1,0 +1,49 @@
+<resources>
+  <string name="app_name">Foot goal</string>
+  <string name="no_network">Oops,Sorry no network available</string>
+
+  <!-- BOTTOM NAVIGATION WORDS !-->
+  <string name="bottom_nav_home">HOME</string>
+  <string name="bottom_nav_matches">MATCHES</string>
+  <string name="bottom_nav_fav">FAVORITE</string>
+  <string name="bottom_nav_leagues">LEAGUES</string>
+
+  <!--LEAGUE NAMES !-->
+  <string name="champions_league">UEFA CHAMPIONS LEAGGUE</string>
+  <string name="euro_champion">EUROPEAN CHAMPIONSHIP</string>
+  <string name="premier_league">PREMIER LEAGUE</string>
+  <string name="championship">EFL CHAMPIONSHIP</string>
+  <string name="serie_a">ITALY SERIE A</string>
+  <string name="la_liga">LA LIGA</string>
+  <string name="ligue_1">LEAGUE 1</string>
+  <string name="bundes_league">BUNDES LEAGUE</string>
+  <string name="dutch_league">EREDIVISE</string>
+  <string name="portogues">PORTUGUESE PRIMERA DIVISION</string>
+  <string name="brazil_league">BRAZILIAN DIVISION LEAGUE</string>
+  <string name="language_change">اللغة العربية</string>
+
+
+  <!--Match Types !-->
+  <string name="league_week">WEEK \u0020</string>
+  <string name="group_stage">DAY \u0020</string>
+  <string name="knock">Knock \u0020</string>
+  <string name="postponed">THIS MATCH HAD BEEN <u>POSTPONED</u></string>
+
+
+  <!--Standing words !-->
+  <string name="played">Played \n</string>
+  <string name="won">Won \n</string>
+  <string name="draw">Draw \n</string>
+  <string name="lost">Lost \n</string>
+  <string name="scored">Goal Scored \n</string>
+  <string name="conceded">Goal Conceded \n</string>
+  <string name="points">Points \n</string>
+  <string name="position">Position \n</string>
+  <string name="goal_diff">Goal Difference \n</string>
+
+  <!-- 0THER !-->
+  <string name="gameweek">MatchDay</string>
+  <string name="retry">RETRY</string>
+  <string name="next">Next</string>
+  <string name="prev">Previous</string>
+</resources>

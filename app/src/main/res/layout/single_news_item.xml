@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="20dp"
+    app:cardCornerRadius="6dp"
+    android:layout_margin="@dimen/small_margin"
+    tools:targetApi="lollipop">
+
+  <android.support.constraint.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/darkRed">
+
+    <ImageView
+        android:id="@+id/news_img"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha=".2"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/no_preview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/news_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/xx_large_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/small_padding"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_source_name"/>
+
+    <TextView
+        android:id="@+id/news_source_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/small_padding"
+        android:textColor="@color/whiteColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/news_source_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:textSize="@dimen/small_txt_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/news_title"
+        app:layout_constraintTop_toBottomOf="@+id/news_title"/>
+
+    <TextView
+        android:id="@+id/news_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/small_margin"
+        android:layout_marginTop="@dimen/small_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/small_txt_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+  </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>
