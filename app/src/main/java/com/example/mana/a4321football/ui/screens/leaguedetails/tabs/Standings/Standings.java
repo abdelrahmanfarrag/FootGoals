@@ -10,10 +10,14 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
 import com.pnikosis.materialishprogress.ProgressWheel;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class Standings extends BaseFragment implements StandingsResponse {
 
@@ -25,6 +29,7 @@ public class Standings extends BaseFragment implements StandingsResponse {
   @BindView(R.id.prev_group) Button prev;
 
   StandingsPresenter presenter;
+  String id;
 
   public static Standings getInstance() {
     return new Standings();
@@ -36,30 +41,45 @@ public class Standings extends BaseFragment implements StandingsResponse {
 
   @Override public void init() {
 
-    instantiatePresenter();
     RecyclerConfigs.setupRecyclerSettings(table, getContext(), LinearLayoutManager.VERTICAL,
         DividerItemDecoration.HORIZONTAL);
+  }
+
+  @Override public void onStop() {
+    super.onStop();
+    EventBus.getDefault().unregister(this);
+  }
+
+  @Override public void onStart() {
+    super.onStart();
+    EventBus.getDefault().register(this);
+  }
+
+  @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+  public void getBusDetails(Details details) {
+    instantiatePresenter(details.getId());
   }
 
   @OnClick({ R.id.technical_error_btn })
   public void onViewClicked(View v) {
     switch (v.getId()) {
       case R.id.technical_error_btn:
-        instantiatePresenter();
+        instantiatePresenter(id);
         break;
     }
   }
 
-  private void instantiatePresenter() {
+  private void instantiatePresenter(String id) {
     presenter = new StandingsPresenter(getContext(), disposables, this);
     View[] views = { errorImg, errorBtn };
     Handler h = new Handler();
-    h.postDelayed(() -> presenter.loadStandings(wheel, views), 600);
+    h.postDelayed(() -> presenter.loadStandings(wheel, views, id), 600);
   }
 
   @Override public void standingResponse(Standing standing) {
     View[] views = { next, prev };
     presenter.selectGroup(standing.getStandings().size(), views);
+
     for (int i = 0; i < standing.getStandings().size(); i++) {
       table.setAdapter(new StandingAdapter(standing.getStandings().get(i).getTables()));
     }

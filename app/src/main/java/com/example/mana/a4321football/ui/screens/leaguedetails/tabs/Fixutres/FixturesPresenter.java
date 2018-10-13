@@ -21,10 +21,10 @@ public class FixturesPresenter extends BasePresenter {
     super(context, disposable);
     this.response = response;
   }
-  public void settingsViews(View[] views){
-    if (LeagueBus.getCurrentMatch() == 1){
+  public void settingsViews(View[] views,int matchday){
+    if (matchday == 1){
       views[0].setVisibility(View.GONE);
-      }else if (LeagueBus.getCurrentMatch() ==38){
+      }else if (matchday ==38){
       views[1].setVisibility(View.INVISIBLE);
     }else {
       views[0].setVisibility(View.VISIBLE);
@@ -37,6 +37,7 @@ public class FixturesPresenter extends BasePresenter {
     data.put(Constants.MATCH_DAY, day);
     return data;
   }
+
 
   public void loadFixtures(ProgressWheel wheel, int day, String id, View[] views) {
 

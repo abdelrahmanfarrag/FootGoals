@@ -3,8 +3,6 @@ package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings;
 import android.content.Context;
 import android.view.View;
 import com.example.mana.a4321football.data.eventbus.EmblemsBus;
-import com.example.mana.a4321football.data.eventbus.LeagueBus;
-import com.example.mana.a4321football.data.eventbus.testBus;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.ui.base.BasePresenter;
 import com.example.mana.a4321football.utility.AppUtils;
@@ -13,7 +11,6 @@ import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.HashMap;
 import java.util.Map;
-import org.greenrobot.eventbus.EventBus;
 
 public class StandingsPresenter extends BasePresenter {
 
@@ -24,14 +21,14 @@ public class StandingsPresenter extends BasePresenter {
     this.response = response;
   }
 
-  public void loadStandings(ProgressWheel wheel, View[] views) {
+  public void loadStandings(ProgressWheel wheel, View[] views,String id) {
 
     if (!AppUtils.isOnline(context)// || LeagueBus.getLeagueID() == null
         ) {
       views[0].setVisibility(View.VISIBLE);
       views[1].setVisibility(View.VISIBLE);
     } else {
-      services.getLeagueStandings(wheel, LeagueBus.getLeagueID(), standingMap());
+      services.getLeagueStandings(wheel,id , standingMap());
       views[0].setVisibility(View.GONE);
       views[1].setVisibility(View.GONE);
     }
@@ -52,7 +49,6 @@ public class StandingsPresenter extends BasePresenter {
 
   @Override public void loadServiceData(Object model) {
     Standing standing = (Standing) model;
-    EventBus.getDefault().post(new testBus("MANA"));
     int groupsCount = standing.getStandings().size();
     Map<String, String> emblems = new HashMap<>();
     for (int i = 0; i < groupsCount; i++) {

@@ -14,17 +14,19 @@ public class TopScorerPresenter extends BasePresenter {
 
   private ScorerResponse response;
 
-  public TopScorerPresenter(Context context, CompositeDisposable disposable,ScorerResponse response) {
+  public TopScorerPresenter(Context context, CompositeDisposable disposable,
+      ScorerResponse response) {
     super(context, disposable);
-    this.response= response;
+    this.response = response;
   }
 
-  public void loadLeagueScorers(ProgressWheel wheel, View[] views) {
-    if (!AppUtils.isOnline(context) || LeagueBus.getLeagueID() == null) {
+  public void loadLeagueScorers(String id, ProgressWheel wheel, View[] views) {
+    if (!AppUtils.isOnline(context) || id == null) {
       views[0].setVisibility(View.VISIBLE);
       views[1].setVisibility(View.VISIBLE);
     } else {
-      services.getLeagueScorers(wheel, LeagueBus.getLeagueID());
+      services.getLeagueScorers(wheel, id
+      );
       views[0].setVisibility(View.GONE);
       views[1].setVisibility(View.GONE);
     }
@@ -33,6 +35,5 @@ public class TopScorerPresenter extends BasePresenter {
   @Override public void loadServiceData(Object model) {
     Scorer scorer = (Scorer) model;
     response.scorerData(scorer);
-
   }
 }

@@ -30,9 +30,8 @@ public class NewsPresenter extends BasePresenter {
     data.put(Constants.NEWS_KEY, Constants.NEWS_API_KEEY);
     return data;
   }
-
   public void loadNews(ProgressWheel wheel, View[] views) {
-    if (!AppUtils.isOnline(context) || LeagueBus.getLeagueID() == null) {
+    if (!AppUtils.isOnline(context)) {
       views[0].setVisibility(View.VISIBLE);
       views[1].setVisibility(View.VISIBLE);
     } else {

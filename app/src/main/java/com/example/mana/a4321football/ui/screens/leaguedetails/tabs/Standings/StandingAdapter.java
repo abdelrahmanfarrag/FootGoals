@@ -15,15 +15,12 @@ import com.ahmadrosid.svgloader.SvgLoader;
 
 import com.bumptech.glide.Glide;
 import com.example.mana.a4321football.R;
-import com.example.mana.a4321football.data.eventbus.EmblemsBus;
 import com.example.mana.a4321football.data.eventbus.LeagueBus;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
-import com.example.mana.a4321football.utility.ToastMessages;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class StandingAdapter extends BaseRecyclerAdapter<Standing.Stand.Table, BaseRecyclerHolder> {
 
@@ -74,8 +71,6 @@ public class StandingAdapter extends BaseRecyclerAdapter<Standing.Stand.Table, B
         Glide.with(getActivity()).load(getItemAtPosition(itemPosition).getTeam().getTeamLogo())
             .into(hold.backDrop);
       }
-    } else {
-      ToastMessages.ShortToastMessage(getActivity(), "NO IMG AVAILBLE");
     }
 
     hold.name.setText(getItemAtPosition(itemPosition).getTeam().getTeamName());

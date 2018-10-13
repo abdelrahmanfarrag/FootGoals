@@ -10,6 +10,7 @@ import butterknife.BindDrawable;
 import butterknife.BindString;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.ui.screens.leaguedetails.LeagueDetailsActivity;
 import com.example.mana.a4321football.utility.AppUtils;
@@ -19,6 +20,7 @@ import com.example.mana.a4321football.utility.ToastMessages;
 import java.text.ParseException;
 import java.util.Arrays;
 import java.util.List;
+import org.greenrobot.eventbus.EventBus;
 
 public class LeaguesFragment extends BaseFragment implements LeagueId {
 
@@ -83,9 +85,8 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
     };
   }
 
-  @Override public void leagueId(String id) {
-    Intent in = new Intent(getContext(), LeagueDetailsActivity.class);
-    in.putExtra(Constants.LEAGUE_ID, id);
-    Intents.dataIntent(getContext(), in);
+  @Override public void leagueId(String id, String name) {
+    Intents.normalIntent(getContext(), LeagueDetailsActivity.class);
+    EventBus.getDefault().postSticky(new Details(id, name));
   }
 }

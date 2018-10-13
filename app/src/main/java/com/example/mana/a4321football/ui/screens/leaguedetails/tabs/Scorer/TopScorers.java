@@ -9,11 +9,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.data.eventbus.LeagueBus;
 import com.example.mana.a4321football.data.model.Scorer;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
 import com.pnikosis.materialishprogress.ProgressWheel;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class TopScorers extends BaseFragment implements ScorerResponse {
 
@@ -23,6 +27,7 @@ public class TopScorers extends BaseFragment implements ScorerResponse {
   @BindView(R.id.technical_error) ImageView errorImg;
 
   TopScorerPresenter presenter;
+  private String id;
 
   public static TopScorers getInstance() {
     return new TopScorers();
@@ -35,13 +40,27 @@ public class TopScorers extends BaseFragment implements ScorerResponse {
   @Override public void init() {
     RecyclerConfigs.setupRecyclerSettings(scorerList, getContext(), LinearLayoutManager.VERTICAL,
         DividerItemDecoration.HORIZONTAL);
-    setupConnectionToPreseneter();
   }
 
-  private void setupConnectionToPreseneter() {
+  @Override public void onStart() {
+    super.onStart();
+    EventBus.getDefault().register(this);
+  }
+
+  @Override public void onStop() {
+    super.onStop();
+    EventBus.getDefault().unregister(this);
+  }
+
+  @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+  public void getBusData(Details details) {
+    setupConnectionToPreseneter(details.getId());
+  }
+
+  private void setupConnectionToPreseneter(String id) {
     View[] views = { errorBtn, errorImg };
     presenter = new TopScorerPresenter(getContext(), disposables, this);
-    presenter.loadLeagueScorers(loader, views);
+    presenter.loadLeagueScorers(id, loader, views);
   }
 
   @Override public void scorerData(Scorer data) {

@@ -2,11 +2,12 @@ package com.example.mana.a4321football.ui.screens.leaguedetails;
 
 import android.content.Context;
 import com.example.mana.a4321football.data.eventbus.LeagueBus;
+import com.example.mana.a4321football.data.eventbus.MatchDay;
 import com.example.mana.a4321football.data.model.League;
 import com.example.mana.a4321football.ui.base.BasePresenter;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
+import org.greenrobot.eventbus.EventBus;
 
 public class LeagueDetailsPresenter extends BasePresenter {
 
@@ -19,19 +20,15 @@ public class LeagueDetailsPresenter extends BasePresenter {
   }
 
   public void loadDetails(String id, ProgressWheel wheel) {
-    if (id !=null) {
+    if (id != null) {
       services.getLeagueDetails(wheel, id);
-    }else {
-      ToastMessages.ShortToastMessage(context,"id value is "+id
-      );
     }
   }
 
   @Override public void loadServiceData(Object model) {
     League league = (League) model;
     response.leageDetails(league);
-    LeagueBus.setLeagueID(league.getLeagueCode());
+    EventBus.getDefault().post(new MatchDay(league.getSeason().getCurrentMatch()));
     LeagueBus.setLeagueNAME(league.getName());
-    LeagueBus.setCurrentMatch(league.getSeason().getCurrentMatch());
   }
 }

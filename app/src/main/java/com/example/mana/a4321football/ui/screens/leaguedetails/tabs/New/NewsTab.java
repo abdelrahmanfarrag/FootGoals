@@ -10,10 +10,15 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.data.model.News;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 public class NewsTab extends BaseFragment implements NewsResponse {
 
@@ -36,6 +41,20 @@ public class NewsTab extends BaseFragment implements NewsResponse {
     instantiateRecycler();
     Handler h = new Handler();
     h.postDelayed(this::instantiatePresenter, 1200);
+  }
+
+  @Override public void onStart() {
+    super.onStart();
+    EventBus.getDefault().register(this);
+  }
+
+  @Override public void onStop() {
+    super.onStop();
+    EventBus.getDefault().unregister(this);
+  }
+
+  @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+  public void busData(Details details) {
   }
 
   @OnClick({ R.id.technical_error_btn })

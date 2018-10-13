@@ -9,17 +9,12 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import com.example.mana.a4321football.R;
-import com.example.mana.a4321football.data.eventbus.LeagueBus;
-import com.example.mana.a4321football.data.eventbus.testBus;
+import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.data.model.League;
-import com.example.mana.a4321football.data.network.RetrofitServices;
 import com.example.mana.a4321football.ui.base.BaseActivity;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.StandingAdapter;
 import com.example.mana.a4321football.utility.AppUtils;
-import com.example.mana.a4321football.utility.Constants;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
-import java.util.Objects;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
@@ -42,10 +37,7 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
   }
 
   @Override public void instantiateView(Bundle bundle) {
-    id = Objects.requireNonNull(getIntent().getExtras()).getString(Constants.LEAGUE_ID);
-    ToastMessages.ShortToastMessage(getContext(),id);
     tabsSetup();
-    getPresenterData();
     StandingAdapter.setActivity(this);
   }
 
@@ -57,7 +49,7 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
   public void onClick(View v) {
     switch (v.getId()) {
       case R.id.league_name:
-        getPresenterData();
+        getPresenterData(id);
         break;
     }
   }
@@ -72,18 +64,15 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
     EventBus.getDefault().unregister(this);
   }
 
-  @Subscribe(threadMode = ThreadMode.MAIN)
-  public void getName(testBus bus) {
-    if (bus.getName() == null) {
-      ToastMessages.ShortToastMessage(getContext(), "NULL");
-    } else {
-      leagueName.setText(bus.getName());
-    }
+  @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+  public void getName(Details bus) {
+    getPresenterData(bus.getId());
+    leagueName.setText(bus.getName());
+    id = bus.getId();
   }
 
-  private void getPresenterData() {
-    if (!AppUtils.isOnline(getContext())) {
-    } else {
+  private void getPresenterData(String id) {
+    if (AppUtils.isOnline(getContext())) {
       LeagueDetailsPresenter presenter =
           new LeagueDetailsPresenter(getContext(), disposables, this);
       presenter.loadDetails(id, wheel);
@@ -97,9 +86,9 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
   }
 
   @Override public void leageDetails(League league) {
-    if (league !=null) {
-      leagueName.setText(league.getName());
-      EventBus.getDefault().post(new testBus(league.getName()));
+    if (league != null) {
+
+      //      leagueName.setText(league.getName());
     }
   }
 }

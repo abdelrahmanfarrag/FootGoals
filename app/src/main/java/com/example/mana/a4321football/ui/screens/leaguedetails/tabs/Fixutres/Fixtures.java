@@ -10,13 +10,11 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import com.example.mana.a4321football.R;
-import com.example.mana.a4321football.data.eventbus.LeagueBus;
-import com.example.mana.a4321football.data.eventbus.testBus;
+import com.example.mana.a4321football.data.eventbus.Details;
+import com.example.mana.a4321football.data.eventbus.MatchDay;
 import com.example.mana.a4321football.data.model.Fixture;
 import com.example.mana.a4321football.ui.base.BaseFragment;
-import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -32,6 +30,9 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
   @BindView(R.id.prev_fixture) Button prev;
 
   FixturesPresenter presenter;
+  private String id;
+  private int matchDay,currentMatch;
+
   public static Fixtures getInstance() {
     return new Fixtures();
   }
@@ -41,9 +42,6 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
   }
 
   @Override public void init() {
-    //TODO LAST HERE !!
-    Handler h = new Handler();
-    h.postDelayed(() -> instantiatePresenter(0), 1500);
     RecyclerConfigs.setupRecyclerSettings(list, getContext(), LinearLayoutManager.VERTICAL,
         DividerItemDecoration.VERTICAL);
   }
@@ -58,9 +56,16 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
     EventBus.getDefault().unregister(this);
   }
 
+  @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+  public void getData(Details details) {
+    id = details.getId();
+  }
   @Subscribe(threadMode = ThreadMode.MAIN)
-  public void busData(testBus bus) {
-    ToastMessages.ShortToastMessage(getContext(), bus.getName());
+  public void getMatchDay(MatchDay day){
+    matchDay=day.getDay();
+    Handler h = new Handler();
+    h.postDelayed(() -> instantiatePresenter(0), 1500);
+
   }
 
   @OnClick({ R.id.technical_error_btn, R.id.prev_fixture, R.id.next_fixture })
@@ -80,20 +85,19 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
 
   private void instantiatePresenter(int incrementDecrement) {
     View[] views = { error, technicalImage };
-     presenter = new FixturesPresenter(getContext(), disposables, this);
-    int currentMatch = LeagueBus.getCurrentMatch() + incrementDecrement;
+    presenter = new FixturesPresenter(getContext(), disposables, this);
+     currentMatch = matchDay + incrementDecrement;
     if (currentMatch > 0) {
-      LeagueBus.setCurrentMatch(currentMatch);
       presenter.loadFixtures(fixtureLoader, currentMatch
-          , LeagueBus.getLeagueID(),
+          , id,
           views);
     }
   }
 
   @Override public void fixtureResponse(Fixture fixture) {
     if (fixture != null) {
-      View[] buttons = {prev,next};
-      presenter.settingsViews(buttons);
+      View[] buttons = { prev, next };
+      presenter.settingsViews(buttons,currentMatch);
       list.setAdapter(new FixturesAdapter(fixture.getMatches()));
     }
   }

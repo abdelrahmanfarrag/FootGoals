@@ -79,7 +79,7 @@ public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHold
       if (getLayoutPosition() == 15) {
         AppUtils.changeLanguage(itemView.getContext(), MainScreenActivity.class);
       } else {
-        id.leagueId(returnLeagueId());
+        id.leagueId(returnLeagueId(),(String) getItemAtPosition(getLayoutPosition()));
       }
     }
 
