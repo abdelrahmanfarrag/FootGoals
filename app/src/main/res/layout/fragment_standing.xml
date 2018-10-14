@@ -4,33 +4,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <Button
-      android:id="@+id/next_group"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="@dimen/small_margin"
-      android:background="@drawable/card_background"
-      android:fontFamily="@font/fredoka_one"
-      android:text="@string/next"
-      android:visibility="gone"
-      android:textColor="@color/blackColor"
-      app:layout_constraintEnd_toEndOf="@+id/league_table"
-      app:layout_constraintTop_toTopOf="parent"/>
 
-  <Button
-      android:id="@+id/prev_group"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="@dimen/small_margin"
-      android:background="@drawable/card_background"
-      android:fontFamily="@font/fredoka_one"
-      android:padding="@dimen/medium_padding"
-      android:text="@string/prev"
-      android:textColor="@color/blackColor"
-      android:visibility="gone"
-      app:layout_constraintBottom_toBottomOf="@+id/next_group"
-      app:layout_constraintStart_toStartOf="@+id/league_table"
-      app:layout_constraintTop_toTopOf="@+id/next_group"/>
+  <android.support.constraint.ConstraintLayout
+      android:id="@+id/toggle_container"
+      android:layout_width="0dp"
+      android:layout_height="60dp"
+      android:background="@color/darkBlue"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/group_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fontFamily="@font/fredoka_one"
+        android:paddingTop="12dp"
+        android:textAlignment="center"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintBottom_toBottomOf="@+id/next_group"
+        app:layout_constraintEnd_toStartOf="@+id/next_group"
+        app:layout_constraintStart_toEndOf="@+id/prev_group"
+        app:layout_constraintTop_toTopOf="@+id/next_group"/>
+
+    <Button
+        android:id="@+id/next_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/toggles_background"
+        android:fontFamily="@font/fredoka_one"
+        android:text="@string/next"
+        android:textColor="@color/whiteColor"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/prev_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/toggles_background"
+        android:fontFamily="@font/fredoka_one"
+        android:padding="@dimen/medium_padding"
+        android:text="@string/prev"
+        android:textColor="@color/whiteColor"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/next_group"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/next_group"/>
+  </android.support.constraint.ConstraintLayout>
 
 
   <com.pnikosis.materialishprogress.ProgressWheel
@@ -46,6 +72,7 @@
       app:matProg_barColor="@color/darkBlue"
       app:matProg_barWidth="@dimen/x_small_margin"
       app:matProg_progressIndeterminate="true"/>
+
   <ImageView
       android:id="@+id/technical_error"
       android:layout_width="wrap_content"
@@ -85,6 +112,6 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"/>
+      app:layout_constraintTop_toBottomOf="@+id/toggle_container"/>
 
 </android.support.constraint.ConstraintLayout>

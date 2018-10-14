@@ -2,11 +2,13 @@ package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.TextView;
 import com.example.mana.a4321football.data.eventbus.EmblemsBus;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.ui.base.BasePresenter;
 import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.HashMap;
@@ -21,14 +23,14 @@ public class StandingsPresenter extends BasePresenter {
     this.response = response;
   }
 
-  public void loadStandings(ProgressWheel wheel, View[] views,String id) {
+  public void loadStandings(ProgressWheel wheel, View[] views, String id) {
 
     if (!AppUtils.isOnline(context)// || LeagueBus.getLeagueID() == null
         ) {
       views[0].setVisibility(View.VISIBLE);
       views[1].setVisibility(View.VISIBLE);
     } else {
-      services.getLeagueStandings(wheel,id , standingMap());
+      services.getLeagueStandings(wheel, id, standingMap());
       views[0].setVisibility(View.GONE);
       views[1].setVisibility(View.GONE);
     }
@@ -40,10 +42,45 @@ public class StandingsPresenter extends BasePresenter {
     return data;
   }
 
-  public void selectGroup(int listLength, View[] toggles) {
+  private String groupName(int position) {
+    switch (position) {
+      case 0:
+        return "GROUP A";
+      case 1:
+        return "GROUP B";
+      case 2:
+        return "GROUP C";
+      case 3:
+        return "GROUP D";
+      case 4:
+        return "GROUP E";
+      case 5:
+        return "GROUP F";
+      case 6:
+        return "GROUP G";
+      case 7:
+        return "GROUP H";
+      default:
+        return "NULL";
+    }
+  }
+
+  public void selectGroup(int listLength, View[] toggles, TextView group, int position) {
     if (listLength > 1) {
-      toggles[0].setVisibility(View.VISIBLE);
-      toggles[1].setVisibility(View.VISIBLE);
+      group.setText(groupName(position));
+      toggles[2].setVisibility(View.VISIBLE);
+      if (position == 0) {
+        toggles[1].setVisibility(View.INVISIBLE);
+        toggles[0].setVisibility(View.VISIBLE);
+      } else if (position == 7) {
+        toggles[1].setVisibility(View.VISIBLE);
+        toggles[0].setVisibility(View.INVISIBLE);
+      } else {
+        toggles[1].setVisibility(View.VISIBLE);
+        toggles[0].setVisibility(View.VISIBLE);
+      }
+    } else {
+      toggles[2].setVisibility(View.GONE);
     }
   }
 
