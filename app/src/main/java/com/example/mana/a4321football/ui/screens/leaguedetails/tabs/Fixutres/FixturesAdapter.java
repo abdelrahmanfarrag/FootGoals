@@ -22,6 +22,7 @@ import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.StandingAdapter;
 import com.example.mana.a4321football.utility.AppUtils;
+import com.example.mana.a4321football.utility.ImageSettings;
 import com.example.mana.a4321football.utility.ToastMessages;
 import java.util.List;
 
@@ -51,8 +52,8 @@ public class FixturesAdapter extends BaseRecyclerAdapter<Fixture.Matches, BaseRe
     } else {
       String homeUrl = EmblemsBus.getEmblems().get(homeTeamName);
       String awayUrl = EmblemsBus.getEmblems().get(awayTeamName);
-      settingImage(homeUrl, fixture.itemView.getContext(), fixture.homeImg);
-      settingImage(awayUrl, fixture.itemView.getContext(), fixture.awayImg);
+      ImageSettings.settingImage(homeUrl, fixture.itemView.getContext(), fixture.homeImg);
+      ImageSettings.settingImage(awayUrl, fixture.itemView.getContext(), fixture.awayImg);
     }
 
     if (getItemAtPosition(layoutPos).getStatus().equalsIgnoreCase("SCHEDULED")) {
@@ -74,35 +75,6 @@ public class FixturesAdapter extends BaseRecyclerAdapter<Fixture.Matches, BaseRe
         AppUtils.transformTime(getItemAtPosition(layoutPos).getMatchTime()));
 
     fixture.day.setText(fixture.gameweek + " " + getItemAtPosition(layoutPos).getMatchDay());
-  }
-
-  private void settingImage(String team, Context context, ImageView target) {
-    if (!TextUtils.isEmpty(team)) {
-      if (team.contains(".svg")) {
-        if (LeagueBus.getLeagueNAME().equalsIgnoreCase("Ligue 1")) {
-          Glide.with(StandingAdapter.getActivity())
-              .load(team)
-              .into(target);
-          Glide.with(StandingAdapter.getActivity())
-              .load(team)
-              .into(target);
-        } else {
-          SvgLoader.pluck()
-              .with(StandingAdapter.getActivity())
-              .load(team, target);
-          SvgLoader.pluck()
-              .with(StandingAdapter.getActivity())
-              .load(team, target);
-        }
-      } else {
-        Glide.with(StandingAdapter.getActivity())
-            .load(team)
-            .into(target);
-        Glide.with(StandingAdapter.getActivity())
-            .load(team)
-            .into(target);
-      }
-    }
   }
 
   class FixtureHolder extends BaseRecyclerHolder {

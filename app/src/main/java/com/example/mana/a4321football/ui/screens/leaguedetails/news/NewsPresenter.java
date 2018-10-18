@@ -1,14 +1,11 @@
-package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.New;
+package com.example.mana.a4321football.ui.screens.leaguedetails.news;
 
 import android.content.Context;
 import android.view.View;
-import com.example.mana.a4321football.data.eventbus.LeagueBus;
 import com.example.mana.a4321football.data.model.News;
-import com.example.mana.a4321football.data.network.RetrofitServices;
 import com.example.mana.a4321football.ui.base.BasePresenter;
 import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.HashMap;

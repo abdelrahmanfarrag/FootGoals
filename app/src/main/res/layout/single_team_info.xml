@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginBottom="@dimen/small_margin"
+    android:background="@color/silver">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="@dimen/small_view_width"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@null"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"/>
+
+    <TextView
+        android:id="@+id/second_player_name_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:alpha=".1"
+        android:fontFamily="@font/fredoka_one"
+        android:textAlignment="center"
+        android:textColor="@color/blackColor"
+        android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/info_player_num"
+        android:layout_width="@dimen/small_view_width"
+        android:layout_height="@dimen/medium_view_height"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="@dimen/small_margin"
+        android:background="@drawable/text_background"
+        android:fontFamily="@font/fredoka_one"
+        android:paddingTop="@dimen/x_medium_margin"
+        android:textAlignment="center"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/player_info_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/blackColor"
+        app:layout_constraintStart_toEndOf="@+id/info_player_num"
+        app:layout_constraintTop_toTopOf="@+id/info_player_num"/>
+
+    <TextView
+        android:id="@+id/player_info_dob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/blackColor"
+        app:layout_constraintStart_toStartOf="@+id/player_info_name"
+        app:layout_constraintTop_toBottomOf="@+id/player_info_name"/>
+
+    <TextView
+        android:id="@+id/player_info_nation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredoka_one"
+        android:textColor="@color/blackColor"
+        app:layout_constraintStart_toStartOf="@+id/player_info_dob"
+        app:layout_constraintTop_toBottomOf="@+id/player_info_dob"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="@dimen/small_view_width"
+        android:layout_height="@dimen/small_view_height"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@null"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/player_info_pos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/fredoka_one"
+        android:paddingTop="@dimen/medium_margin"
+        android:textAlignment="center"
+        android:textColor="@color/blackColor"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4"/>
+</android.support.constraint.ConstraintLayout>

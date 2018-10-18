@@ -1,4 +1,4 @@
-package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.New;
+package com.example.mana.a4321football.ui.screens.leaguedetails.news;
 
 import android.os.Build;
 import android.support.annotation.NonNull;

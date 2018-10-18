@@ -8,29 +8,34 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 public class FragmentManagement {
-  public static void showFragmentOnActivity(Activity hostActivity, Fragment showingFragment,
+  public static void showFragmentOnActivity(Activity activity, Fragment fragment,
       @IdRes int container, boolean replace) {
-    FragmentManager fragmentManager = ((FragmentActivity) hostActivity).getSupportFragmentManager();
-    FragmentTransaction transaction = fragmentManager.beginTransaction();
-    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-    if (replace) {
-      transaction.replace(container, showingFragment).commit();
-    } else {
-      transaction.addToBackStack(null);
-      transaction.add(container, showingFragment).commit();
-    }
-  }
-
-  public static void showFragmentOnFragment(Fragment hostFragment, Fragment guestFragment,
-      @IdRes int container, boolean replace) {
-    FragmentManager manager = hostFragment.getChildFragmentManager();
+    if (activity == null || fragment == null) return;
+    //animateContainer(activity, null, container, true);
+    FragmentManager manager = ((FragmentActivity) activity).getSupportFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();
     transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
     if (replace) {
-      transaction.replace(container, guestFragment).commit();
+      transaction.replace(container, fragment).commit();
     } else {
       transaction.addToBackStack(null);
-      transaction.add(container, guestFragment).commit();
+      manager.executePendingTransactions();
+    }
+  }
+
+  public static void showFragmentOnFragment(Fragment host, Fragment guest,
+      @IdRes int container, boolean replace, boolean animate) {
+    if (host == null || guest == null) return;
+    //animateContainer(null, host, container, animate);
+    if (host.getActivity() == null) return;
+    FragmentManager manager = host.getChildFragmentManager();
+    FragmentTransaction transaction = manager.beginTransaction();
+    transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+    if (replace) {
+      transaction.replace(container, guest).commit();
+    } else {
+      transaction.addToBackStack(null);
+      transaction.add(container, guest).commit();
     }
   }
 }

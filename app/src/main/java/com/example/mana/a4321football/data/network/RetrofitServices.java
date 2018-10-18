@@ -71,6 +71,26 @@ public class RetrofitServices {
     disposables.add(disposable);
   }
 
+  public void getLeagueTeams(ProgressWheel wheel, String leagueId) {
+    Disposable disposable = api.getLeagueTeams(leagueId)
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
+        .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
+        .subscribe(this::subscribeToResponse);
+    disposables.add(disposable);
+  }
+
+  public void getTeamInfo(ProgressWheel wheel, int teamId) {
+    Disposable disposable = api.getSingleTeamInfo(teamId)
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
+        .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
+        .subscribe(this::subscribeToResponse);
+    disposables.add(disposable);
+  }
+
   public void getLeagueNews(ProgressWheel wheel, Map<String, String> params) {
     Disposable disposable = newsApi.getLeagueNews(params)
         .subscribeOn(Schedulers.io())

@@ -16,13 +16,16 @@ import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.ui.base.BaseFragment;
+import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.TeamDetails;
+import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
 import com.pnikosis.materialishprogress.ProgressWheel;
+import java.util.List;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-public class Standings extends BaseFragment implements StandingsResponse {
+public class Standings extends BaseFragment implements StandingsResponse, ItemDetails {
 
   @BindView(R.id.standing_wheel) ProgressWheel wheel;
   @BindView(R.id.league_table) RecyclerView table;
@@ -32,6 +35,7 @@ public class Standings extends BaseFragment implements StandingsResponse {
   @BindView(R.id.next_group) Button next;
   @BindView(R.id.prev_group) Button prev;
   @BindView(R.id.group_name) TextView name;
+
   StandingsPresenter presenter;
   String id;
   private int groupPosition = 0;
@@ -101,7 +105,12 @@ public class Standings extends BaseFragment implements StandingsResponse {
 
   private void settingToggles(Standing standing) {
     View[] views = { next, prev, container };
-    presenter.selectGroup(standing.getStandings().size(), views,name ,groupPosition);
-    table.setAdapter(new StandingAdapter(standing.getStandings().get(groupPosition).getTables()));
+    presenter.selectGroup(standing.getStandings().size(), views, name, groupPosition);
+    table.setAdapter(
+        new StandingAdapter(standing.getStandings().get(groupPosition).getTables(), this));
+  }
+
+  @Override public void teamId(Standing.Stand.Table.Team team) {
+
   }
 }

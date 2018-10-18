@@ -5,9 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Fixutres.Fixtures;
-import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.New.NewsTab;
+import com.example.mana.a4321football.ui.screens.leaguedetails.news.NewsTab;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.Standings;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Scorer.TopScorers;
+import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.TeamsFragment;
 
 public class TabAdapter extends FragmentPagerAdapter {
 
@@ -22,7 +23,7 @@ public class TabAdapter extends FragmentPagerAdapter {
       case 1:
         return new Standings();
       case 2:
-        return new NewsTab();
+        return new TeamsFragment();
       case 3:
         return new TopScorers();
       default:
@@ -41,7 +42,7 @@ public class TabAdapter extends FragmentPagerAdapter {
       case 1:
         return "STANDINGS";
       case 2:
-        return "NEWS";
+        return "TEAMS";
       case 3:
         return "TOP SCORERS";
       default:

@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_cont"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkBlue">
@@ -97,10 +98,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical|center_horizontal"
-        android:fontFamily="@font/fredoka_one"
-        android:text="LEAGUE SAMPLE"
-        android:gravity="center"
         android:background="@drawable/card_background"
+        android:fontFamily="@font/fredoka_one"
+        android:gravity="center"
+        android:text="LEAGUE SAMPLE"
         android:textAlignment="center"
         android:textColor="@color/whiteColor"/>
 

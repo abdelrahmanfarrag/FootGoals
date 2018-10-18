@@ -3,6 +3,8 @@ package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.matc
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.model.Matches;
@@ -15,6 +17,7 @@ import java.util.List;
     implements TodayMatches, OnFavorClicked {
   @BindView(R.id.matches_wheel) ProgressWheel matchesWheel;
   @BindView(R.id.today_matches_list) RecyclerView todayMatches;
+  @BindView(R.id.no_match_img) ImageView noMatches;
 
   public static MatchesFragment getInstance() {
     return new MatchesFragment();
@@ -32,7 +35,15 @@ import java.util.List;
   }
 
   @Override public void todayMatchesList(List<Matches.MatchDetails> matches) {
+    if (matches.size() == 0){
+      todayMatches.setVisibility(View.INVISIBLE);
+      noMatches.setVisibility(View.VISIBLE);
+    }else {
+      todayMatches.setVisibility(View.VISIBLE);
+      noMatches.setVisibility(View.GONE);
+    }
     todayMatches.setAdapter(new MatchesAdapter(matches, this));
+
   }
 
   @Override public void onFavoriteMatchClicked(String date) {

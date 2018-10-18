@@ -3,6 +3,7 @@ package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import butterknife.BindColor;
 import butterknife.BindString;
 import butterknife.BindView;
+import butterknife.OnClick;
 import com.ahmadrosid.svgloader.SvgLoader;
 
 import com.bumptech.glide.Glide;
@@ -21,14 +23,16 @@ import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
 import java.util.List;
 
-
 public class StandingAdapter extends BaseRecyclerAdapter<Standing.Stand.Table, BaseRecyclerHolder> {
 
   @SuppressLint("StaticFieldLeak") private static Activity activity;
 
+  ItemDetails details;
+
   StandingAdapter(
-      List<Standing.Stand.Table> recyclerItems) {
+      List<Standing.Stand.Table> recyclerItems, ItemDetails details) {
     super(recyclerItems);
+    this.details = details;
   }
 
   public static Activity getActivity() {
@@ -110,6 +114,7 @@ public class StandingAdapter extends BaseRecyclerAdapter<Standing.Stand.Table, B
     @BindView(R.id.team_standing_conceded) TextView conceded;
     @BindView(R.id.team_standing_points) TextView points;
     @BindView(R.id.team_standing_difference) TextView goalDifference;
+    @BindView(R.id.item_standing_cont) ConstraintLayout layout;
 
     @BindString(R.string.position) String positions;
     @BindString(R.string.played) String play;
@@ -127,6 +132,15 @@ public class StandingAdapter extends BaseRecyclerAdapter<Standing.Stand.Table, B
 
     StandingHolder(View itemView) {
       super(itemView);
+    }
+
+    @OnClick({ R.id.item_standing_cont })
+    public void onItemClicked(View v) {
+      switch (v.getId()) {
+        case R.id.item_standing_cont:
+          details.teamId(getItemAtPosition(getLayoutPosition()).getTeam());
+          break;
+      }
     }
   }
 }

@@ -7,10 +7,12 @@
   <color name="whiteColor">#ffffff</color>
   <color name="blackColor">#000000</color>
   <color name="darkWhite">#E2EBF3</color>
+  <color name="silver">#EBFFF1</color>
   <color name="darkRed">#600E0B</color>
   <color name="lightRed">#FF0000</color>
   <color name="darkGreen">#0E9F30</color>
   <color name="darkGrey">#0A4B40</color>
   <color name="silverColor">#8EF3DB</color>
   <color name="orangeColor">#FF5D33</color>
+  <color name="green">#13D152</color>
 </resources>

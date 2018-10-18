@@ -30,9 +30,11 @@ public class StandingsPresenter extends BasePresenter {
       views[0].setVisibility(View.VISIBLE);
       views[1].setVisibility(View.VISIBLE);
     } else {
-      services.getLeagueStandings(wheel, id, standingMap());
-      views[0].setVisibility(View.GONE);
-      views[1].setVisibility(View.GONE);
+      if (id !=null) {
+        services.getLeagueStandings(wheel, id, standingMap());
+        views[0].setVisibility(View.GONE);
+        views[1].setVisibility(View.GONE);
+      }
     }
   }
 

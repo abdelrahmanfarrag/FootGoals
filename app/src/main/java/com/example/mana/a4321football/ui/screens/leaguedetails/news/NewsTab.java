@@ -1,4 +1,4 @@
-package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.New;
+package com.example.mana.a4321football.ui.screens.leaguedetails.news;
 
 import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
@@ -14,7 +14,6 @@ import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.data.model.News;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

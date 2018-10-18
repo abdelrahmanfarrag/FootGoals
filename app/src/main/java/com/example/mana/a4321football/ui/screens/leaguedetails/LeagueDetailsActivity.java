@@ -14,6 +14,7 @@ import com.example.mana.a4321football.data.model.League;
 import com.example.mana.a4321football.ui.base.BaseActivity;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.StandingAdapter;
 import com.example.mana.a4321football.utility.AppUtils;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -25,6 +26,8 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
   @BindView(R.id.tab_layout) TabLayout tabLayout;
   @BindView(R.id.details_wheel) ProgressWheel wheel;
   @BindView(R.id.league_name) TextView leagueName;
+
+
 
   public static Activity getActivityInstance() {
     return new LeagueDetailsActivity();
@@ -69,13 +72,16 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
     getPresenterData(bus.getId());
     leagueName.setText(bus.getName());
     id = bus.getId();
+
   }
 
   private void getPresenterData(String id) {
     if (AppUtils.isOnline(getContext())) {
       LeagueDetailsPresenter presenter =
           new LeagueDetailsPresenter(getContext(), disposables, this);
-      presenter.loadDetails(id, wheel);
+      if (id!=null) {
+        presenter.loadDetails(id, wheel);
+      }
     }
   }
 
