@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.Notification.Notify;
 import com.example.mana.a4321football.data.model.Matches;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
@@ -35,15 +36,15 @@ import java.util.List;
   }
 
   @Override public void todayMatchesList(List<Matches.MatchDetails> matches) {
-    if (matches.size() == 0){
+    if (matches.size() == 0) {
       todayMatches.setVisibility(View.INVISIBLE);
       noMatches.setVisibility(View.VISIBLE);
-    }else {
+    } else {
       todayMatches.setVisibility(View.VISIBLE);
       noMatches.setVisibility(View.GONE);
+      Notify.setDailyNotification(getContext(), matches.size());
     }
     todayMatches.setAdapter(new MatchesAdapter(matches, this));
-
   }
 
   @Override public void onFavoriteMatchClicked(String date) {

@@ -38,6 +38,7 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
   @BindString(R.string.dutch_league) String dutch;
   @BindString(R.string.brazil_league) String brazilLeague;
   @BindString(R.string.language_change) String language;
+  @BindString(R.string.news) String newsStr;
 
   @BindDrawable(R.drawable.euro) Drawable euro;
   @BindDrawable(R.drawable.england) Drawable england;
@@ -49,6 +50,7 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
   @BindDrawable(R.drawable.netherlands) Drawable holland;
   @BindDrawable(R.drawable.brazil) Drawable brazil;
   @BindDrawable(R.drawable.world) Drawable world;
+  @BindDrawable(R.drawable.newspaper) Drawable news;
 
   public static LeaguesFragment getInstance() {
     return new LeaguesFragment();
@@ -74,14 +76,15 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
   private String[] leagueName() {
     return new String[] {
         championsLeague,/* euroChampionship,*/ null, premierLeague, eflChampionship, null, laLeague,
-        league1, italySeriaA, null, potogues, bundesLeague, dutch, brazilLeague, null, language
+        league1, italySeriaA, null, potogues, bundesLeague, dutch, brazilLeague, null, newsStr,
+        language
     };
   }
 
   private Drawable[] leagueIcons() {
     return new Drawable[] {
         euro, /*euro, */null, england, england, null, spain, france, italy, null, portugal, germany,
-        holland, brazil, null, world
+        holland, brazil, null, news, world
     };
   }
 

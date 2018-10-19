@@ -12,7 +12,7 @@ import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.HomeF
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.Leagues.LeaguesFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.matches.MatchesFragment;
 import com.example.mana.a4321football.utility.FragmentManagement;
-import com.example.mana.a4321football.utility.Notification.Notify;
+import com.example.mana.a4321football.data.Notification.Notify;
 
 public class MainScreenActivity extends BaseActivity {
 
@@ -25,7 +25,6 @@ public class MainScreenActivity extends BaseActivity {
 
   @Override public void instantiateView(Bundle bundle) {
     bottomNavigationChangeItems();
-    Notify.setDailyNotification(getContext());
 
   }
 

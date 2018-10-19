@@ -18,7 +18,7 @@ public class Constants {
   public static final String SCORERS = "competitions/{id}/scorers";
   public static final String TOP_HEADLINES = "top-headlines";
   public static final String FIXTURES = "competitions/{id}/matches";
-  public static final String LEAGUE_TEAMS ="competitions/{id}/teams";
+  public static final String LEAGUE_TEAMS = "competitions/{id}/teams";
   public static final String TEAM_INFO = "teams/{id}";
 
   //News API KEYS
@@ -28,6 +28,8 @@ public class Constants {
   //SHARED PREF KEY && LANGUAGE KEYS
   public static final String SHARED_PREF = "pref";
   public static final String SHARED_KEY = "key";
+  public static final String SHARED_TEAM_ID = "shMap";
+  public static final String TEAM_ID_PREF = "_id_pref";
   public static final String ARABIC_LANG = "ar";
   public static final String ENGLISH_LANG = "en";
 
@@ -51,6 +53,7 @@ public class Constants {
   public static final String LIGUE_1 = "FL1";
   public static final String CHAMPIONS_LEAGUE = "CL";
   public static final String BRAZIL_LEAGUE = "BSA";
+  public static final String NEWS_LIST = "_news_";
   public static final String EUROPEAN_CHAMPIONSHIP = "EC";
 
   //INTENT KEYS

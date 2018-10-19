@@ -30,7 +30,7 @@
         android:name=".ui.screens.leaguedetails.LeagueDetailsActivity"
         android:theme="@style/AppTheme.NoActionBar"/>
 
-    <receiver android:name=".utility.Notification.NotifyReceiver"/>
+    <receiver android:name=".data.Notification.NotifyReceiver"/>
 
     <meta-data
         android:name="preloaded_fonts"

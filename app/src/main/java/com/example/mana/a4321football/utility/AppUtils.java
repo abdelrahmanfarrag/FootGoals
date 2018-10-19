@@ -12,13 +12,10 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
-import android.widget.Toast;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.screens.mainscreen.MainScreenActivity;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.Date;
 import java.text.ParseException;
 import java.util.Locale;
@@ -35,11 +32,11 @@ public class AppUtils {
   }
 
   public static void changeLanguage(Context context, Class<?> destination) {
-    if (AppUtils.retrievePref(context).equals(Constants.ENGLISH_LANG)) {
-      AppUtils.sharedPrefManager(context, Constants.ARABIC_LANG);
+    if (SharedPreferencesManager.retrieveLanguagePref(context).equals(Constants.ENGLISH_LANG)) {
+      SharedPreferencesManager.languageSharedPref(context, Constants.ARABIC_LANG);
       AppUtils.languageToLoad(Constants.ARABIC_LANG, context, MainScreenActivity.class);
     } else {
-      AppUtils.sharedPrefManager(context, Constants.ENGLISH_LANG);
+      SharedPreferencesManager.languageSharedPref(context, Constants.ENGLISH_LANG);
       AppUtils.languageToLoad(Constants.ENGLISH_LANG, context, destination);
     }
   }
@@ -52,18 +49,6 @@ public class AppUtils {
     context.getResources()
         .updateConfiguration(config, context.getResources().getDisplayMetrics());
     Intents.normalIntent(context, destination);
-  }
-
-  private static void sharedPrefManager(Context context, String value) {
-    @SuppressLint("CommitPrefEdits") SharedPreferences.Editor pref =
-        context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE).edit();
-    pref.putString(SHARED_KEY, value);
-    pref.apply();
-  }
-
-  private static String retrievePref(Context context) {
-    SharedPreferences pref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE);
-    return pref.getString(SHARED_KEY, "no data inserted");
   }
 
   @RequiresApi(api = Build.VERSION_CODES.N) public static String transformTime(String input) {
@@ -79,10 +64,11 @@ public class AppUtils {
     return outputFormat.format(date);
   }
 
-  @TargetApi(Build.VERSION_CODES.O) @RequiresApi(api = Build.VERSION_CODES.N) public static String getCurrentTim() {
-    LocalTime localTime=LocalTime.now();
+  @TargetApi(Build.VERSION_CODES.O) @RequiresApi(api = Build.VERSION_CODES.N)
+  public static String getCurrentTim() {
+    LocalTime localTime = LocalTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-    String formattedTime=localTime.format(formatter);
+    String formattedTime = localTime.format(formatter);
     return formattedTime;
   }
 
