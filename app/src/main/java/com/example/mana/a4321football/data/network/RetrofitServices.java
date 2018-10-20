@@ -110,6 +110,16 @@ public class RetrofitServices {
         .subscribe(this::subscribeToResponse);
     disposables.add(disposable);
   }
+  public void getTeamPreviousGame(ProgressWheel wheel, int id, String query) {
+    Disposable disposable = api.getPreviousGames(id, query)
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
+        .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
+        .subscribe(this::subscribeToResponse);
+    disposables.add(disposable);
+  }
+
 
   private void subscribeToResponse(Response<?> response) {
     validator.getServiceResponse(response);

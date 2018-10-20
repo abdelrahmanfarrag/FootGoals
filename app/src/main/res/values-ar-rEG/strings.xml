@@ -46,6 +46,11 @@
   <string name="prev">السابق</string>
   <string name="fav">لم تقم باختيار فريقك المفضل بعد !</string>
   <string name="squad">اعرض قائمة الفريق !</string>
+  <string name="found">أُنشئ</string>
+  <string name="stad_name">الاستاد</string>
+  <string name="visit">زُر الموقع الالكتروني للفريق</string>
+
+
 
 
 </resources>

@@ -39,7 +39,7 @@ public class TeamsPresenter extends BasePresenter {
   private Teams teams;
   private CompositeDisposable disposables;
 
-  TeamsPresenter(Context context,
+  public TeamsPresenter(Context context,
       CompositeDisposable disposable, TeamsResponse response) {
     super(context, disposable);
     this.response = response;
@@ -53,7 +53,7 @@ public class TeamsPresenter extends BasePresenter {
     }
   }
 
-  private void loadTeamInfo(int id, ProgressWheel wheel) {
+  public void loadTeamInfo(int id, ProgressWheel wheel) {
     if (id != 0) {
       services.getTeamInfo(wheel, id);
     }

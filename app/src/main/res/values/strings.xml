@@ -49,4 +49,8 @@
   <string name="prev">Previous</string>
   <string name="fav">You did not select your favorite team yet !</string>
   <string name="squad">VIEW TEAM SQUAD !</string>
+  <string name="found">FOUNDED</string>
+  <string name="stad_name">STADIUM</string>
+  <string name="visit">Visit team\'s website</string>
+
 </resources>

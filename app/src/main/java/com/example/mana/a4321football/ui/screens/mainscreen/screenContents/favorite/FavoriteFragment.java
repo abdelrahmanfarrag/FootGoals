@@ -8,6 +8,7 @@ import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.database.Favorite;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.ui.base.BaseFragment;
+import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.TeamDetailFragment;
 import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
 import com.example.mana.a4321football.utility.ToastMessages;

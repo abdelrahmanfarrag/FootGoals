@@ -9,16 +9,18 @@ import com.example.mana.a4321football.data.model.Scorer;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.data.model.Teams;
 import io.reactivex.Observable;
-import java.util.List;
 import java.util.Map;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 import static com.example.mana.a4321football.utility.Constants.DETAILS;
 import static com.example.mana.a4321football.utility.Constants.FIXTURES;
 import static com.example.mana.a4321football.utility.Constants.LEAGUE_TEAMS;
+import static com.example.mana.a4321football.utility.Constants.MATCH_STATUS;
+import static com.example.mana.a4321football.utility.Constants.PREVIOUS_GAMES;
 import static com.example.mana.a4321football.utility.Constants.TEAM_INFO;
 import static com.example.mana.a4321football.utility.Constants.TOP_HEADLINES;
 import static com.example.mana.a4321football.utility.Constants.MATCHES;
@@ -48,4 +50,7 @@ public interface RetrofitApi {
 
   @GET(TEAM_INFO) Observable<Response<Teams>> getSingleTeamInfo(@Path("id")
       int id);
+
+  @GET(PREVIOUS_GAMES) Observable<Response<Matches>> getPreviousGames(@Path("id") int id,
+      @Query(MATCH_STATUS) String status);
 }

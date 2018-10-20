@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+  <ImageView
+      android:id="@+id/fav_team_crest"
+      android:layout_width="@dimen/medium_view_width"
+      android:layout_height="@dimen/medium_view_height"
+      android:layout_marginTop="@dimen/small_margin"
+      android:contentDescription="@null"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  <com.pnikosis.materialishprogress.ProgressWheel
+      android:id="@+id/fav_wheel"
+      android:layout_width="@dimen/progress_wheel_width"
+      android:layout_height="@dimen/progress_wheel_height"
+      android:layout_gravity="center"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:matProg_barColor="@color/darkBlue"
+      app:matProg_barWidth="@dimen/x_small_margin"
+      app:matProg_progressIndeterminate="true"/>
+
+
+  <TextView
+      android:id="@+id/fav_team_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/fredoka_one"
+      android:padding="@dimen/large_padding"
+      android:textColor="@color/whiteColor"
+      android:textSize="@dimen/medium_txt_size"
+      app:layout_constraintEnd_toEndOf="@+id/fav_team_crest"
+      app:layout_constraintStart_toStartOf="@+id/fav_team_crest"
+      app:layout_constraintTop_toBottomOf="@+id/fav_team_crest"/>
+
+  <TextView
+      android:id="@+id/fav_team_area"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/fredoka_one"
+      android:padding="@dimen/large_padding"
+      android:textColor="@color/blackColor"
+      android:textSize="@dimen/medium_txt_size"
+      app:layout_constraintEnd_toEndOf="@+id/fav_team_crest"
+      app:layout_constraintStart_toStartOf="@+id/fav_team_crest"
+      app:layout_constraintTop_toBottomOf="@+id/fav_team_name"/>
+
+
+  <TextView
+      android:id="@+id/fav_team_founded"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/small_margin"
+      android:padding="@dimen/small_padding"
+      android:textColor="@color/whiteColor"
+      android:fontFamily="@font/fredoka_one"
+      android:textSize="@dimen/small_txt_size"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/fav_team_area"/>
+
+  <TextView
+      android:id="@+id/fav_team_stadium"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="@dimen/small_margin"
+      android:padding="@dimen/small_padding"
+      android:textColor="@color/blackColor"
+      android:fontFamily="@font/fredoka_one"
+      android:textSize="@dimen/small_txt_size"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/fav_team_founded"/>
+
+  <Button
+      android:id="@+id/fav_team_web_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="8dp"
+      android:layout_marginTop="16dp"
+      android:background="@drawable/btn_background"
+      android:fontFamily="@font/fredoka_one"
+      android:padding="@dimen/large_padding"
+      android:stateListAnimator="@null"
+      android:text="@string/visit"
+      android:textAllCaps="false"
+      android:textColor="@color/whiteColor"
+      app:layout_constraintBottom_toTopOf="@+id/fav_team_squad_btn"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/fav_team_stadium"
+      tools:targetApi="lollipop"/>
+
+  <Button
+      android:id="@+id/fav_team_squad_btn"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/small_margin"
+      android:layout_marginEnd="@dimen/medium_margin"
+      android:layout_marginStart="@dimen/medium_margin"
+      android:background="@drawable/red_btn_background"
+      android:fontFamily="@font/fredoka_one"
+      android:padding="@dimen/large_padding"
+      android:stateListAnimator="@null"
+      android:text="@string/squad"
+      android:textAllCaps="false"
+      android:textColor="@color/whiteColor"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:targetApi="lollipop"/>
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

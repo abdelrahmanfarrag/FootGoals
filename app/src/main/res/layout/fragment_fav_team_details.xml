@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/grey">
 
-
-  <TextView
-      android:layout_width="wrap_content"
+  <android.support.v7.widget.CardView
+      android:id="@+id/tab_container"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:id="@+id/rest_psp"/>
+      android:layout_marginTop="@dimen/small_margin"
+      android:layout_marginStart="@dimen/small_margin"
+      android:layout_marginEnd="@dimen/small_margin"
+      app:cardBackgroundColor="@color/darkGreen"
+      app:cardCornerRadius="5dp"
+      app:cardElevation="12dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+      <android.support.design.widget.TabLayout
+          android:id="@+id/tab_layout"
+          android:layout_width="match_parent"
+          android:layout_height="?attr/actionBarSize"
+          android:background="@android:color/transparent"
+          android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:tabIndicatorColor="@color/blackColor"
+          app:tabMode="scrollable"
+          app:tabSelectedTextColor="@color/whiteColor"
+          app:tabTextAppearance="@style/tab_text"
+          app:tabTextColor="@color/blackColor"/>
+    </android.support.design.widget.AppBarLayout>
+  </android.support.v7.widget.CardView>
+
+  <android.support.v7.widget.CardView
+      android:id="@+id/pager_container"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="@dimen/small_margin"
+      android:layout_marginStart="@dimen/small_margin"
+      android:layout_marginTop="16dp"
+      android:elevation="12dp"
+      app:cardBackgroundColor="@color/whiteColor"
+      app:cardCornerRadius="@dimen/small_margin"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tab_container"
+      tools:ignore="UnusedAttribute">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tabs_pages"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/details_wheel"
+        android:layout_width="@dimen/progress_wheel_width"
+        android:layout_height="@dimen/progress_wheel_height"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:visibility="gone"
+        app:matProg_barColor="@color/darkBlue"
+        app:matProg_barWidth="@dimen/x_small_margin"
+        app:matProg_progressIndeterminate="true"/>
+  </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

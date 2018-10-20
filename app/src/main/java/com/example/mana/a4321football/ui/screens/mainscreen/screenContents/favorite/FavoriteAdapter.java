@@ -58,7 +58,7 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
     int pos = hold.getLayoutPosition();
     String imgUrl = getItemAtPosition(pos).getCrestUrl();
     hold.favoriteName.setText(getItemAtPosition(pos).getTeamName());
-    ImageSettings.favoriteImage(hold.itemView.getContext(),hold.teamCrest,getActivity(),imgUrl);
+    ImageSettings.favoriteImage(hold.itemView.getContext(), hold.teamCrest, getActivity(), imgUrl);
   }
 
   class FavoriteHolder extends BaseRecyclerHolder {
@@ -74,7 +74,8 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
     public void OnClick() {
       EventBus.getDefault()
           .post(new TeamDetail(getItemAtPosition(getLayoutPosition()).getTeamId(),
-              getItemAtPosition(getLayoutPosition()).getTeamName()));
+              getItemAtPosition(getLayoutPosition()).getTeamName(),
+              getItemAtPosition(getLayoutPosition()).getCrestUrl()));
       response.teamData(getItemAtPosition(getLayoutPosition()).getTeamId());
     }
   }

@@ -11,9 +11,19 @@ public class Teams {
   @SerializedName("venue") private String stadium;
   @SerializedName("shortName") private String shortName;
   @SerializedName("squad") private List<Squad> squads;
+  @SerializedName("area") private Area area;
+  @SerializedName("founded") private int founded;
+
+  public int getFounded() {
+    return founded;
+  }
 
   public int getId() {
     return id;
+  }
+
+  public Area getArea() {
+    return area;
   }
 
   public String getName() {
@@ -71,6 +81,14 @@ public class Teams {
 
     public String getRole() {
       return role;
+    }
+  }
+
+  public class Area {
+    @SerializedName("name") private String name;
+
+    public String getName() {
+      return name;
     }
   }
 }
