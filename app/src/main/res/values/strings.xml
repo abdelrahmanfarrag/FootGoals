@@ -47,4 +47,6 @@
   <string name="retry">RETRY</string>
   <string name="next">Next</string>
   <string name="prev">Previous</string>
+  <string name="fav">You did not select your favorite team yet !</string>
+  <string name="squad">VIEW TEAM SQUAD !</string>
 </resources>

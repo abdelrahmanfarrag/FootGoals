@@ -12,9 +12,11 @@ import butterknife.OnClick;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
+import com.example.mana.a4321football.ui.screens.leaguedetails.news.NewsTab;
 import com.example.mana.a4321football.ui.screens.mainscreen.MainScreenActivity;
 import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
+import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.ToastMessages;
 import java.util.List;
 
@@ -79,10 +81,10 @@ public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHold
     public void onItemClicked() {
       if (getLayoutPosition() == 15) {
         AppUtils.changeLanguage(itemView.getContext(), MainScreenActivity.class);
-      } else if (getLayoutPosition() == 14){
-        ToastMessages.ShortToastMessage(itemView.getContext(),"NEXT WORK NEWS !");
-      }
-      else{
+      } else if (getLayoutPosition() == 14) {
+        FragmentManagement.showFragmentOnFragment(LeaguesFragment.getInstance(),
+            NewsTab.getInstance(), R.id.leagues_container, false);
+      } else {
         id.leagueId(returnLeagueId(), (String) getItemAtPosition(getLayoutPosition()));
       }
     }
@@ -91,8 +93,6 @@ public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHold
       switch (getLayoutPosition()) {
         case 0:
           return Constants.CHAMPIONS_LEAGUE;
-   /*     case 1:
-          return Constants.EUROPEAN_CHAMPIONSHIP;*/
         case 2:
           return Constants.PREMIER_LEAGUE;
         case 3:

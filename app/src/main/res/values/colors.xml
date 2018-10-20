@@ -4,6 +4,7 @@
   <color name="colorPrimaryDark">#303F9F</color>
   <color name="colorAccent">#FF4081</color>
   <color name="darkBlue">#0F4574</color>
+  <color name="xdarkBlue">#0E052A</color>
   <color name="whiteColor">#ffffff</color>
   <color name="blackColor">#000000</color>
   <color name="darkWhite">#E2EBF3</color>
@@ -14,5 +15,6 @@
   <color name="darkGrey">#0A4B40</color>
   <color name="silverColor">#8EF3DB</color>
   <color name="orangeColor">#FF5D33</color>
+  <color name="grey">#1E1C1C</color>
   <color name="green">#13D152</color>
 </resources>

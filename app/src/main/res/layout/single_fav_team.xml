@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/large_padding"
+    android:layout_margin="@dimen/x_small_margin"
+    android:background="@drawable/dark_blue_ripple">
+
+  <ImageView
+      android:id="@+id/fav_team_crest"
+      android:layout_width="@dimen/medium_view_width"
+      android:layout_height="@dimen/medium_view_height"
+      android:layout_marginTop="8dp"
+      android:contentDescription="@null"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
+  <TextView
+      android:id="@+id/fav_team_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:fontFamily="@font/fredoka_one"
+      android:textColor="@color/whiteColor"
+      android:textSize="@dimen/medium_txt_size"
+      app:layout_constraintEnd_toEndOf="@+id/fav_team_crest"
+      app:layout_constraintStart_toStartOf="@+id/fav_team_crest"
+      app:layout_constraintTop_toBottomOf="@+id/fav_team_crest"/>
+
+</android.support.constraint.ConstraintLayout>

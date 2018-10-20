@@ -7,17 +7,20 @@ import android.widget.FrameLayout;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.base.BaseActivity;
-import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.FavoriteFragment;
+import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.FavoriteFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.HomeFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.Leagues.LeaguesFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.matches.MatchesFragment;
 import com.example.mana.a4321football.utility.FragmentManagement;
-import com.example.mana.a4321football.data.Notification.Notify;
 
 public class MainScreenActivity extends BaseActivity {
 
   @BindView(R.id.bottom_nav_main_screen) BottomNavigationView bnv;
   @BindView(R.id.screens_container) FrameLayout container;
+
+  public static MainScreenActivity getActivity(){
+    return new MainScreenActivity();
+  }
 
   @Override public int activityLayoutId() {
     return R.layout.main_activity_screen;

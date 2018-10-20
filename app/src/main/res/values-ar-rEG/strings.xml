@@ -44,5 +44,8 @@
 
   <string name="next">التالي</string>
   <string name="prev">السابق</string>
+  <string name="fav">لم تقم باختيار فريقك المفضل بعد !</string>
+  <string name="squad">اعرض قائمة الفريق !</string>
+
 
 </resources>

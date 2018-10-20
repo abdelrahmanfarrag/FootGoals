@@ -24,9 +24,8 @@ public class FragmentManagement {
   }
 
   public static void showFragmentOnFragment(Fragment host, Fragment guest,
-      @IdRes int container, boolean replace, boolean animate) {
+      @IdRes int container, boolean replace) {
     if (host == null || guest == null) return;
-    //animateContainer(null, host, container, animate);
     if (host.getActivity() == null) return;
     FragmentManager manager = host.getChildFragmentManager();
     FragmentTransaction transaction = manager.beginTransaction();

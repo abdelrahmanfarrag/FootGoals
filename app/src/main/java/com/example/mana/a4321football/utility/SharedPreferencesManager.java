@@ -11,16 +11,16 @@ import static com.example.mana.a4321football.utility.Constants.TEAM_ID_PREF;
 
 public class SharedPreferencesManager {
 
-  public static void setSharedPreferences(Context context, String teamId) {
+  public static void setSharedPreferences(Context context, int teamId) {
     SharedPreferences.Editor preferences =
         context.getSharedPreferences(SHARED_TEAM_ID, Context.MODE_PRIVATE).edit();
-    preferences.putString(TEAM_ID_PREF, teamId);
+    preferences.putInt(TEAM_ID_PREF, teamId);
     preferences.apply();
   }
 
-  private static String retrievePref(Context context) {
+  public static int retrievePref(Context context) {
     SharedPreferences pref = context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE);
-    return pref.getString(SHARED_KEY, "no data inserted");
+    return pref.getInt(SHARED_TEAM_ID, 0);
   }
 
 

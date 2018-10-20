@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,6 +28,16 @@
       app:layout_constraintStart_toEndOf="@+id/team_info_img"
       app:layout_constraintTop_toTopOf="@+id/team_info_img"/>
 
+  <Button
+      android:id="@+id/team_info_follow"
+      android:layout_width="@dimen/small_view_width"
+      android:layout_height="@dimen/small_view_height"
+      android:layout_marginEnd="@dimen/small_margin"
+      android:layout_marginTop="@dimen/small_margin"
+      android:background="@drawable/like"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
   <com.pnikosis.materialishprogress.ProgressWheel
       android:id="@+id/team_info_whee"
       android:layout_width="@dimen/progress_wheel_width"
@@ -50,5 +61,24 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/team_info_img"/>
+
+  <Button
+      android:id="@+id/team_info_retry"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/btn_background"
+      android:textColor="@color/whiteColor"
+      android:stateListAnimator="@null"
+      android:text="@string/retry"
+      android:visibility="gone"
+      android:drawableStart="@drawable/retry"
+      android:paddingStart="@dimen/medium_padding"
+      android:paddingEnd="@dimen/medium_padding"
+
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:targetApi="lollipop"/>
 
 </android.support.constraint.ConstraintLayout>

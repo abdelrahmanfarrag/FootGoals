@@ -38,7 +38,9 @@ public class TeamInfoAdapter extends BaseRecyclerAdapter<Teams.Squad, BaseRecycl
     int pos = hold.getLayoutPosition();
     hold.secondaryName.setText(getItemAtPosition(pos).getName());
     hold.playerName.setText(getItemAtPosition(pos).getName());
-    hold.dob.setText(AppUtils.transformDate(getItemAtPosition(pos).getDob()));
+    if (getItemAtPosition(pos).getDob() != null) {
+      hold.dob.setText(AppUtils.transformDate(getItemAtPosition(pos).getDob()));
+    }
     hold.nation.setText(getItemAtPosition(pos).getNationality());
     if (getItemAtPosition(pos).getNumber() > 0) {
       hold.number.setText(String.valueOf(getItemAtPosition(pos).getNumber()));
@@ -57,7 +59,8 @@ public class TeamInfoAdapter extends BaseRecyclerAdapter<Teams.Squad, BaseRecycl
 
     if (getItemAtPosition(pos).getPosition() != null) {
       hold.position.setText(getItemAtPosition(pos).getPosition());
-      hold.position.setText(playerPosition(getItemAtPosition(pos).getPosition(),hold.positionImg,hold.gk));
+      hold.position.setText(
+          playerPosition(getItemAtPosition(pos).getPosition(), hold.positionImg, hold.gk));
     } else {
       hold.positionImg.setBackground(hold.coach);
       hold.posImg.setBackgroundColor(hold.red);
@@ -88,7 +91,7 @@ public class TeamInfoAdapter extends BaseRecyclerAdapter<Teams.Squad, BaseRecycl
     }
   }
 
-  private String playerPosition(String position,ImageView gkImg,Drawable img) {
+  private String playerPosition(String position, ImageView gkImg, Drawable img) {
     switch (position) {
       case "Defender":
         return "DF";
