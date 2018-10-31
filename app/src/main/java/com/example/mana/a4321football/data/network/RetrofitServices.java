@@ -2,6 +2,7 @@ package com.example.mana.a4321football.data.network;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.mana.a4321football.R;
@@ -38,7 +39,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -48,7 +49,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -58,7 +59,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -68,7 +69,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -78,7 +79,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -88,7 +89,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -98,7 +99,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -109,7 +110,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -119,7 +120,7 @@ public class RetrofitServices {
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))
         .doFinally(() -> wheel.setVisibility(View.INVISIBLE))
-        .subscribe(this::subscribeToResponse);
+        .subscribe(this::subscribeToResponse,this::onFail);
     disposables.add(disposable);
   }
 
@@ -134,6 +135,9 @@ public class RetrofitServices {
 
   public interface transformServiceResponse {
     void responseReceived(Object model);
+  }
+  private void onFail(Throwable t){
+    Log.d("errorMsg", "onFail:"+t.getMessage());
   }
 
   private void checkNetworkAvailability() {

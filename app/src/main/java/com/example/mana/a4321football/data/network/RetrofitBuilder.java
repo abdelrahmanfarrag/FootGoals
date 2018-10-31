@@ -75,7 +75,7 @@ public class RetrofitBuilder {
         .retryOnConnectionFailure(true)
         .cache(cache)
         .addInterceptor(chain -> chain.proceed(retroHeader(chain)))
-        .addInterceptor(cachingInterceptor(context))
+     //   .addInterceptor(cachingInterceptor(context))
         .addInterceptor(logging())
         .build();
   }

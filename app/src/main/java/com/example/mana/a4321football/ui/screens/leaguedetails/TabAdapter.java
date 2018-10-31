@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Fixutres.Fixtures;
-import com.example.mana.a4321football.ui.screens.leaguedetails.news.NewsTab;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.Standings;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Scorer.TopScorers;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.TeamsFragment;

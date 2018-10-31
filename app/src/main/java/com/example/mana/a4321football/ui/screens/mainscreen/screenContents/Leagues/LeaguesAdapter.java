@@ -12,12 +12,11 @@ import butterknife.OnClick;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
-import com.example.mana.a4321football.ui.screens.leaguedetails.news.NewsTab;
+import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.news.NewsTab;
 import com.example.mana.a4321football.ui.screens.mainscreen.MainScreenActivity;
 import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
 import com.example.mana.a4321football.utility.FragmentManagement;
-import com.example.mana.a4321football.utility.ToastMessages;
 import java.util.List;
 
 public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHolder> {

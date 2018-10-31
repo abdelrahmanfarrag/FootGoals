@@ -11,6 +11,7 @@ import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favor
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.HomeFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.Leagues.LeaguesFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.matches.MatchesFragment;
+import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.news.NewsTab;
 import com.example.mana.a4321football.utility.FragmentManagement;
 
 public class MainScreenActivity extends BaseActivity {
@@ -37,12 +38,12 @@ public class MainScreenActivity extends BaseActivity {
 
   private void bottomNavigationChangeItems() {
     bnv.setSelectedItemId(R.id.bottom_home);
-    changeFragment(HomeFragment.getInstance());
+    changeFragment(NewsTab.getInstance());
     bnv.setOnNavigationItemSelectedListener(
         item -> {
           switch (item.getItemId()) {
             case R.id.bottom_home:
-              changeFragment(HomeFragment.getInstance());
+              changeFragment(NewsTab.getInstance());
               return true;
             case R.id.bottom_match:
               changeFragment(MatchesFragment.getInstance());

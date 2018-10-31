@@ -1,4 +1,4 @@
-package com.example.mana.a4321football.ui.screens.leaguedetails.news;
+package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.news;
 
 import android.content.Context;
 import android.view.View;
