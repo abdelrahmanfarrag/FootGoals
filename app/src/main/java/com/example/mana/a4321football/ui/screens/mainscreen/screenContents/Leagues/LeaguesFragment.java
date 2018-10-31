@@ -76,7 +76,7 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
   private String[] leagueName() {
     return new String[] {
         championsLeague,/* euroChampionship,*/ null, premierLeague, eflChampionship, null, laLeague,
-        league1, italySeriaA, null, potogues, bundesLeague, dutch, brazilLeague, null, newsStr,
+        league1, italySeriaA, null, potogues, bundesLeague, dutch, brazilLeague, null,
         language
     };
   }
@@ -84,7 +84,7 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
   private Drawable[] leagueIcons() {
     return new Drawable[] {
         euro, /*euro, */null, england, england, null, spain, france, italy, null, portugal, germany,
-        holland, brazil, null, news, world
+        holland, brazil, null, world
     };
   }
 

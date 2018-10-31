@@ -6,10 +6,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.BindString;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.eventbus.Details;
+import com.example.mana.a4321football.data.eventbus.Tabs;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.data.model.LeagueTeams;
 import com.example.mana.a4321football.data.model.Teams;
@@ -17,6 +19,7 @@ import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.TeamsPresenter;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.TeamsResponse;
 import com.example.mana.a4321football.utility.ImageSettings;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -68,9 +71,10 @@ public class Info extends BaseFragment implements TeamsResponse {
     EventBus.getDefault().unregister(this);
   }
 
-  @Subscribe(threadMode = ThreadMode.MAIN)
-  public void subscribtToBus(TeamDetail details) {
-    instantiatePresenter(details.getId());
+  @Subscribe(sticky = true,threadMode = ThreadMode.MAIN)
+  public void subscribtToBus(Tabs details) {
+    ToastMessages.ShortToastMessage(getContext(),details.getDetails().getName());
+    instantiatePresenter(details.getDetails().getId());
   }
 
   private void instantiatePresenter(int id) {

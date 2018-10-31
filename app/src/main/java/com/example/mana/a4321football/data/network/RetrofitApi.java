@@ -20,7 +20,7 @@ import static com.example.mana.a4321football.utility.Constants.DETAILS;
 import static com.example.mana.a4321football.utility.Constants.FIXTURES;
 import static com.example.mana.a4321football.utility.Constants.LEAGUE_TEAMS;
 import static com.example.mana.a4321football.utility.Constants.MATCH_STATUS;
-import static com.example.mana.a4321football.utility.Constants.PREVIOUS_GAMES;
+import static com.example.mana.a4321football.utility.Constants.GAMES;
 import static com.example.mana.a4321football.utility.Constants.TEAM_INFO;
 import static com.example.mana.a4321football.utility.Constants.TOP_HEADLINES;
 import static com.example.mana.a4321football.utility.Constants.MATCHES;
@@ -50,7 +50,8 @@ public interface RetrofitApi {
 
   @GET(TEAM_INFO) Observable<Response<Teams>> getSingleTeamInfo(@Path("id")
       int id);
-
-  @GET(PREVIOUS_GAMES) Observable<Response<Matches>> getPreviousGames(@Path("id") int id,
+//This endPoint service is used in two occasions (previous/next) games !
+  @GET(GAMES) Observable<Response<Matches>> getGames(@Path("id") int id,
       @Query(MATCH_STATUS) String status);
+
 }

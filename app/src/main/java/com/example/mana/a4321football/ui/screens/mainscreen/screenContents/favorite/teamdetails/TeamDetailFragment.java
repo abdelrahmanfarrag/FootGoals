@@ -1,11 +1,14 @@
 package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.eventbus.Tabs;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.ui.screens.leaguedetails.TabAdapter;
@@ -20,6 +23,9 @@ public class TeamDetailFragment extends BaseFragment {
 
   @BindView(R.id.tabs_pages) ViewPager pager;
   @BindView(R.id.tab_layout) TabLayout tabLayout;
+  @BindView(R.id.detail_cont) ConstraintLayout layout;
+
+  TeamDetail detail;
 
   public static TeamDetailFragment getInstance() {
     return new TeamDetailFragment();
@@ -41,17 +47,23 @@ public class TeamDetailFragment extends BaseFragment {
 
   @Subscribe(threadMode = ThreadMode.MAIN)
   public void subscribeToTeamDetailBus(TeamDetail detail) {
+
     if (detail != null) {
-      //hAN3ML 7AGA 5WAGATI ISA 1111
+      this.detail = detail;  //hAN3ML 7AGA 5WAGATI ISA 1111
+      tabsSetup();
+      EventBus.getDefault().postSticky(new Tabs(detail));
+      //
+      layout.setVisibility(View.VISIBLE);
+    } else {
+      layout.setVisibility(View.INVISIBLE);
     }
   }
 
   @Override public void init() {
-    tabsSetup();
   }
 
   private void tabsSetup() {
-    FavoriteTabAdapter adapter = new FavoriteTabAdapter(getFragmentManager(),getContext());
+    FavoriteTabAdapter adapter = new FavoriteTabAdapter(getFragmentManager(), getContext());
     pager.setAdapter(adapter);
     tabLayout.setupWithViewPager(pager);
   }

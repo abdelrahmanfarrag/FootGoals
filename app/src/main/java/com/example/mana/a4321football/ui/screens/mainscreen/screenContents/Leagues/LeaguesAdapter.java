@@ -52,7 +52,7 @@ public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHold
       LeagueTitleHolder hold = (LeagueTitleHolder) holder;
       hold.leagueIcon.setImageDrawable(icons.get(position));
       hold.leagueName.setText((String) getItemAtPosition(position));
-      if (position == 15) {
+      if (position == 14) {
         hold.nextArrow.setVisibility(View.INVISIBLE);
       }
     }
@@ -78,12 +78,9 @@ public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHold
 
     @OnClick
     public void onItemClicked() {
-      if (getLayoutPosition() == 15) {
+      if (getLayoutPosition() == 14) {
         AppUtils.changeLanguage(itemView.getContext(), MainScreenActivity.class);
-      } else if (getLayoutPosition() == 14) {
-        FragmentManagement.showFragmentOnFragment(LeaguesFragment.getInstance(),
-            NewsTab.getInstance(), R.id.leagues_container, false);
-      } else {
+      }else {
         id.leagueId(returnLeagueId(), (String) getItemAtPosition(getLayoutPosition()));
       }
     }
@@ -110,8 +107,6 @@ public class LeaguesAdapter extends BaseRecyclerAdapter<Object, BaseRecyclerHold
           return Constants.HOLLAND_LEAGUE;
         case 12:
           return Constants.BRAZIL_LEAGUE;
-        case 15:
-          return Constants.NEWS_LIST;
         default:
           return Constants.MATCHES;
       }

@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.example.mana.a4321football.R;
-import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.Next;
+import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.next.Next;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.info.Info;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.previous.Previous;
 
@@ -34,11 +34,11 @@ public class FavoriteTabAdapter extends FragmentPagerAdapter {
   @Nullable @Override public CharSequence getPageTitle(int position) {
     switch (position) {
       case 0:
-        return context.getResources().getString(R.string.app_name);
+        return context.getResources().getString(R.string.info);
       case 1:
-        return "NEXT GAMES";
+        return context.getResources().getString(R.string.next_game);
       case 2:
-        return "PREVIOUS GAMES";
+        return context.getResources().getString(R.string.premier_league);
       default:
         return "";
     }

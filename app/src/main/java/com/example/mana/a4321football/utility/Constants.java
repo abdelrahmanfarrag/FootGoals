@@ -20,12 +20,13 @@ public class Constants {
   public static final String FIXTURES = "competitions/{id}/matches";
   public static final String LEAGUE_TEAMS = "competitions/{id}/teams";
   public static final String TEAM_INFO = "teams/{id}";
-  public static final String PREVIOUS_GAMES = "teams/{id}/matches";
+  public static final String GAMES = "teams/{id}/matches";
 
   //Hashmap Keys
   public static final String MATCH_STATUS = "status";
   public static final String MATCHES_LIMIT = "limit";
   public static final String MATCHES_PLAYED = "FINISHED";
+  public static final String MATCHES_NEXT ="SCHEDULED";
 
   //News API KEYS
   public static final String NEWS_KEY = "apiKey";

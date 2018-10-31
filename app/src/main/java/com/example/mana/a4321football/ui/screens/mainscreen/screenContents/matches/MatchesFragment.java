@@ -44,7 +44,7 @@ import java.util.List;
       noMatches.setVisibility(View.GONE);
       Notify.setDailyNotification(getContext(), matches.size());
     }
-    todayMatches.setAdapter(new MatchesAdapter(matches, this));
+    todayMatches.setAdapter(new MatchesAdapter(matches, this,false));
   }
 
   @Override public void onFavoriteMatchClicked(String date) {

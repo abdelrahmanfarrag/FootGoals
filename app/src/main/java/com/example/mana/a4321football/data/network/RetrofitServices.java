@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Dialogs;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -115,7 +114,7 @@ public class RetrofitServices {
   }
 
   public void getTeamPreviousGame(ProgressWheel wheel, int id, String query) {
-    Disposable disposable = api.getPreviousGames(id, query)
+    Disposable disposable = api.getGames(id, query)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
         .doOnSubscribe(dis -> wheel.setVisibility(View.VISIBLE))

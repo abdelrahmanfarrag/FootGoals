@@ -22,13 +22,21 @@ import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
 import java.util.List;
 
-public class MatchesAdapter extends BaseRecyclerAdapter<Matches.MatchDetails, BaseRecyclerHolder> {
-  OnFavorClicked clicked;
+/*
+This Adapter is used in two positions [MATCHES - NEXT MATCHES =PREVOUS MATCHES ]
+IS NEED MODIFICATION THEN SEND TO IT (bool isMatches ) to differ between prev/matches/next :D
+ */
 
-  MatchesAdapter(
-      List<Matches.MatchDetails> recyclerItems, OnFavorClicked clicked) {
+public class MatchesAdapter extends BaseRecyclerAdapter<Matches.MatchDetails, BaseRecyclerHolder> {
+
+  OnFavorClicked clicked;
+  private boolean isFavorite;
+
+  public MatchesAdapter(
+      List<Matches.MatchDetails> recyclerItems, OnFavorClicked clicked, boolean isFavorite) {
     super(recyclerItems);
     this.clicked = clicked;
+    this.isFavorite = isFavorite;
   }
 
   @NonNull @Override
@@ -42,6 +50,12 @@ public class MatchesAdapter extends BaseRecyclerAdapter<Matches.MatchDetails, Ba
   public void onBindViewHolder(@NonNull BaseRecyclerHolder holder, int position) {
     MatchHolder hold = (MatchHolder) holder;
     int[] colors = { hold.darkGreen, hold.darkGrey, hold.darkBlue, hold.darkRed };
+
+    if (isFavorite) {
+      hold.matchNotify.setVisibility(View.GONE);
+    } else {
+      hold.matchNotify.setVisibility(View.VISIBLE);
+    }
     RecyclerConfigs.positionColoringFourItems(hold.matchLayout, colors, position);
     RecyclerConfigs.slidingAdapterAnimation(hold.itemView.getContext(), hold.itemView,
         position, -1);
@@ -106,7 +120,8 @@ public class MatchesAdapter extends BaseRecyclerAdapter<Matches.MatchDetails, Ba
     public void onClick(View view) {
       switch (view.getId()) {
         case R.id.match_notify:
-          clicked.onFavoriteMatchClicked(AppUtils.transformTime(getItemAtPosition(getLayoutPosition()).getTime()));
+          clicked.onFavoriteMatchClicked(
+              AppUtils.transformTime(getItemAtPosition(getLayoutPosition()).getTime()));
           break;
       }
     }

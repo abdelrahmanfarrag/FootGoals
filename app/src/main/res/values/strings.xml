@@ -53,4 +53,9 @@
   <string name="stad_name">STADIUM</string>
   <string name="visit">Visit team\'s website</string>
 
+  <!-- TAB !-->
+  <string name="info">TEAM INFORMATION</string>
+  <string name="next_game">NEXT GAMES</string>
+  <string name="prev_game">PREVIOUS GAMES</string>
+
 </resources>
