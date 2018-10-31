@@ -16,7 +16,7 @@ public class CheckServiceResponse {
   public void getServiceResponse(Response<?> serviceResponse) {
     Object model = serviceResponse.body();
     if (model !=null){
-    reponse.responseReceived(model);}
+      reponse.responseReceived(model);}
     else {
       ToastMessages.ShortToastMessage(context,"Error ya3mna");
     }

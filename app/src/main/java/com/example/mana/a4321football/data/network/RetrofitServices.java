@@ -21,7 +21,7 @@ public class RetrofitServices {
   private Context context;
   private CompositeDisposable disposables;
   private CheckServiceResponse validator;
-  private RetrofitApi api = new RetrofitBuilder().getApi();
+  private RetrofitApi api;
   private RetrofitApi newsApi = new RetrofitBuilder().getNewsApi();
 
   public RetrofitServices(Context context, CompositeDisposable disposables,
@@ -29,6 +29,7 @@ public class RetrofitServices {
     this.context = context;
     this.disposables = disposables;
     validator = new CheckServiceResponse(reponse, context);
+    api = new RetrofitBuilder().getApi(context);
   }
 
   public void getLeagueDetails(ProgressWheel wheel, String id) {
@@ -101,6 +102,7 @@ public class RetrofitServices {
     disposables.add(disposable);
   }
 
+
   public void getLeagueFixtures(ProgressWheel wheel, String id, Map<String, Integer> params) {
     Disposable disposable = api.getLeagueFixtures(id, params)
         .subscribeOn(Schedulers.io())
@@ -110,6 +112,7 @@ public class RetrofitServices {
         .subscribe(this::subscribeToResponse);
     disposables.add(disposable);
   }
+
   public void getTeamPreviousGame(ProgressWheel wheel, int id, String query) {
     Disposable disposable = api.getPreviousGames(id, query)
         .subscribeOn(Schedulers.io())

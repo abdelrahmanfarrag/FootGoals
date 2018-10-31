@@ -1,7 +1,10 @@
-package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs;
+package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.info;
 
 import android.annotation.SuppressLint;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindString;
 import butterknife.BindView;
@@ -27,6 +30,9 @@ public class Info extends BaseFragment implements TeamsResponse {
   @BindView(R.id.fav_team_area) TextView area;
   @BindView(R.id.fav_team_founded) TextView founded;
   @BindView(R.id.fav_team_stadium) TextView stadium;
+  @BindView(R.id.fav_team_squad_btn) Button squadBtn;
+  @BindView(R.id.fav_team_web_btn) Button webBtn;
+  @BindView(R.id.fragment_info_container) ScrollView container;
 
   @BindString(R.string.found) String found;
   @BindString(R.string.stad_name) String stad;
@@ -68,8 +74,15 @@ public class Info extends BaseFragment implements TeamsResponse {
   }
 
   private void instantiatePresenter(int id) {
-    presenter = new TeamsPresenter(getContext(), disposables, this);
-    presenter.loadTeamInfo(id, wheel);
+    if (id != 0) {
+      container.setVisibility(View.VISIBLE);
+      presenter = new TeamsPresenter(getContext(), disposables, this);
+      presenter.loadTeamInfo(id, wheel);
+      squadBtn.setVisibility(View.VISIBLE);
+      webBtn.setVisibility(View.VISIBLE);
+    } else {
+      container.setVisibility(View.INVISIBLE);
+    }
   }
 
   @SuppressLint("SetTextI18n") private void settingViews(Teams teams) {

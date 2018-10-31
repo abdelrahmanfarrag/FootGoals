@@ -24,7 +24,8 @@ public class Constants {
 
   //Hashmap Keys
   public static final String MATCH_STATUS = "status";
-  public static final String MATCHES_LIMIT ="limit";
+  public static final String MATCHES_LIMIT = "limit";
+  public static final String MATCHES_PLAYED = "FINISHED";
 
   //News API KEYS
   public static final String NEWS_KEY = "apiKey";
@@ -63,5 +64,8 @@ public class Constants {
 
   //INTENT KEYS
   public static final String LEAGUE_ID = "_id";
+
+  //Caching
+  public static final long CACHE_SIZE = (5 * 1024 * 1024);
 }
 

@@ -43,6 +43,7 @@ public class FavoriteFragment extends BaseFragment implements presenterResponse 
   }
 
   @Override public void teamData(int id) {
+
   }
 
   @Override public void favoritedTeams(List<Favorite> favorites) {

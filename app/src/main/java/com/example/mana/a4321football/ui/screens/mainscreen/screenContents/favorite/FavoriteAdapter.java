@@ -14,6 +14,8 @@ import com.example.mana.a4321football.data.database.Favorite;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
+import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.TeamDetailFragment;
+import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.ImageSettings;
 import java.util.List;
 import org.greenrobot.eventbus.EventBus;
@@ -76,6 +78,7 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
           .post(new TeamDetail(getItemAtPosition(getLayoutPosition()).getTeamId(),
               getItemAtPosition(getLayoutPosition()).getTeamName(),
               getItemAtPosition(getLayoutPosition()).getCrestUrl()));
+
       response.teamData(getItemAtPosition(getLayoutPosition()).getTeamId());
     }
   }

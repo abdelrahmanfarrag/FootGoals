@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey"
+    android:visibility="gone"
+    android:id="@+id/fragment_info_container"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 <android.support.constraint.ConstraintLayout
@@ -70,7 +73,7 @@
       android:padding="@dimen/small_padding"
       android:textColor="@color/whiteColor"
       android:fontFamily="@font/fredoka_one"
-      android:textSize="@dimen/small_txt_size"
+      android:textSize="@dimen/medium_txt_size"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/fav_team_area"/>
 
@@ -82,14 +85,14 @@
       android:padding="@dimen/small_padding"
       android:textColor="@color/blackColor"
       android:fontFamily="@font/fredoka_one"
-      android:textSize="@dimen/small_txt_size"
+      android:textSize="@dimen/medium_txt_size"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/fav_team_founded"/>
 
   <Button
       android:id="@+id/fav_team_web_btn"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_height="44dp"
       android:layout_marginBottom="8dp"
       android:layout_marginTop="16dp"
       android:background="@drawable/btn_background"
@@ -99,6 +102,7 @@
       android:text="@string/visit"
       android:textAllCaps="false"
       android:textColor="@color/whiteColor"
+      android:visibility="gone"
       app:layout_constraintBottom_toTopOf="@+id/fav_team_squad_btn"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -119,6 +123,7 @@
       android:text="@string/squad"
       android:textAllCaps="false"
       android:textColor="@color/whiteColor"
+      android:visibility="gone"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

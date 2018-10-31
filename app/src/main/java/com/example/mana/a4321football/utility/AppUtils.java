@@ -14,12 +14,19 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.screens.mainscreen.MainScreenActivity;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.text.ParseException;
 import java.util.Locale;
+import okhttp3.Cache;
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Response;
 
+import static com.example.mana.a4321football.utility.Constants.CACHE_SIZE;
 import static com.example.mana.a4321football.utility.Constants.SHARED_KEY;
 import static com.example.mana.a4321football.utility.Constants.SHARED_PREF;
 
@@ -162,12 +169,15 @@ public class AppUtils {
     String var = dateFormat.format(date);
     return var;
   }
+
+
+}
 /*
   public static void clearPref(Context context){
     @SuppressLint("CommitPrefEdits") SharedPreferences.Editor pref =
         context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE).edit();
     pref.clear().apply();
   }*/
-}
+
 
 

@@ -51,7 +51,7 @@ public class TeamDetailFragment extends BaseFragment {
   }
 
   private void tabsSetup() {
-    FavoriteTabAdapter adapter = new FavoriteTabAdapter(getFragmentManager());
+    FavoriteTabAdapter adapter = new FavoriteTabAdapter(getFragmentManager(),getContext());
     pager.setAdapter(adapter);
     tabLayout.setupWithViewPager(pager);
   }

@@ -17,7 +17,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 
-
 @SuppressWarnings({ "LambdaParameterTypeCanBeSpecified", "unchecked" })
 public class FavoritePresenter extends BasePresenter {
 
@@ -28,7 +27,7 @@ public class FavoritePresenter extends BasePresenter {
       CompositeDisposable disposable, presenterResponse response) {
     super(context, disposable);
     this.response = response;
-    this.disposable=disposable;
+    this.disposable = disposable;
   }
 
   public void getShared(View noFavCont) {
@@ -39,6 +38,7 @@ public class FavoritePresenter extends BasePresenter {
       noFavCont.setVisibility(View.GONE);
     }
   }
+
   private Single getFavoriteListObservable() {
 
     DatabaseConstruct db = DatabaseConstruct.getInstance(context);
@@ -49,6 +49,7 @@ public class FavoritePresenter extends BasePresenter {
       }
     });
   }
+
   private SingleObserver getFavoriteListObserver() {
     return new SingleObserver() {
       @Override public void onSubscribe(Disposable d) {
@@ -61,9 +62,11 @@ public class FavoritePresenter extends BasePresenter {
       }
 
       @Override public void onError(Throwable e) {
-        Log.d("edini", "onError: "+e.getMessage());      }
+        Log.d("edini", "onError: " + e.getMessage());
+      }
     };
   }
+
   public void getFavoriteList() {
     getFavoriteListObservable()
         .subscribeOn(Schedulers.io())

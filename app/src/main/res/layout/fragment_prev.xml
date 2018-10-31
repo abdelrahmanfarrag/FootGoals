@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/darkBlue">
+
+  <com.pnikosis.materialishprogress.ProgressWheel
+      android:id="@+id/prev_wheel"
+      android:layout_width="@dimen/progress_wheel_width"
+      android:layout_height="@dimen/progress_wheel_height"
+      android:layout_gravity="center"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:matProg_barColor="@color/xdarkBlue"
+      app:matProg_barWidth="@dimen/x_small_margin"
+      app:matProg_progressIndeterminate="true"/>
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/finished_match_list"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
+
 
 </android.support.constraint.ConstraintLayout>
