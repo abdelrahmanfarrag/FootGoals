@@ -139,10 +139,4 @@ public class RetrofitServices {
     Log.d("errorMsg", "onFail:"+t.getMessage());
   }
 
-  private void checkNetworkAvailability() {
-    Dialog dialog = Dialogs.transparentDialog(context, R.layout.dialog, R.style.wide_dialog);
-    Objects.requireNonNull(dialog.getWindow())
-        .setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-    dialog.show();
-  }
 }

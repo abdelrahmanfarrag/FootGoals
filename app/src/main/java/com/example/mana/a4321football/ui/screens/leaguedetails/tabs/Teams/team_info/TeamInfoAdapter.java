@@ -1,4 +1,4 @@
-package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams;
+package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.team_info;
 
 import android.annotation.SuppressLint;
 import android.graphics.drawable.Drawable;

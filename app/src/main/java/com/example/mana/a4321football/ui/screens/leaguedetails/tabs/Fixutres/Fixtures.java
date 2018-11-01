@@ -15,6 +15,7 @@ import com.example.mana.a4321football.data.eventbus.MatchDay;
 import com.example.mana.a4321football.data.model.Fixture;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -31,7 +32,7 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
 
   FixturesPresenter presenter;
   private String id;
-  private int matchDay,currentMatch;
+  private int matchDay, currentMatch;
 
   public static Fixtures getInstance() {
     return new Fixtures();
@@ -60,12 +61,12 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
   public void getData(Details details) {
     id = details.getId();
   }
-  @Subscribe(threadMode = ThreadMode.MAIN)
-  public void getMatchDay(MatchDay day){
-    matchDay=day.getDay();
-    Handler h = new Handler();
-    h.postDelayed(() -> instantiatePresenter(0), 1500);
 
+  @Subscribe(threadMode = ThreadMode.MAIN)
+  public void getMatchDay(MatchDay day) {
+    matchDay = day.getDay();
+    Handler h = new Handler();
+    h.postDelayed(() -> instantiatePresenter(0), 500);
   }
 
   @OnClick({ R.id.technical_error_btn, R.id.prev_fixture, R.id.next_fixture })
@@ -75,6 +76,7 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
         instantiatePresenter(0);
         break;
       case R.id.next_fixture:
+
         instantiatePresenter(1);
         break;
       case R.id.prev_fixture:
@@ -86,7 +88,9 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
   private void instantiatePresenter(int incrementDecrement) {
     View[] views = { error, technicalImage };
     presenter = new FixturesPresenter(getContext(), disposables, this);
-     currentMatch = matchDay + incrementDecrement;
+    currentMatch = matchDay + incrementDecrement;
+    matchDay = currentMatch;
+    ToastMessages.ShortToastMessage(getContext(),String.valueOf(matchDay));
     if (currentMatch > 0) {
       presenter.loadFixtures(fixtureLoader, currentMatch
           , id,
@@ -97,7 +101,7 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
   @Override public void fixtureResponse(Fixture fixture) {
     if (fixture != null) {
       View[] buttons = { prev, next };
-      presenter.settingsViews(buttons,currentMatch);
+      presenter.settingsViews(buttons, currentMatch);
       list.setAdapter(new FixturesAdapter(fixture.getMatches()));
     }
   }

@@ -6,11 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.eventbus.Details;
+import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.data.model.LeagueTeams;
 import com.example.mana.a4321football.data.model.Teams;
 import com.example.mana.a4321football.ui.base.BaseFragment;
+import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.team_info.TeamInfoFragment;
+import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -35,6 +37,8 @@ public class TeamsFragment extends BaseFragment implements TeamsResponse, TeamDe
   }
 
   @Override public void init() {
+    FragmentManagement.showFragmentOnFragment(TeamsFragment.this,
+        TeamInfoFragment.newInstance(), R.id.team_squad_frame_cont, false);
   }
 
   @Override public void onStart() {
@@ -50,8 +54,8 @@ public class TeamsFragment extends BaseFragment implements TeamsResponse, TeamDe
   @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
   public void subscribeToBus(Details details) {
     instantiatePreseneter(details.getId());
-    RecyclerConfigs.setupRecyclerSettings(list, getContext(), LinearLayoutManager.VERTICAL,
-        DividerItemDecoration.HORIZONTAL);
+    RecyclerConfigs.setupRecyclerSettings(list, getContext(), LinearLayoutManager.HORIZONTAL,
+        DividerItemDecoration.VERTICAL);
   }
 
   private void instantiatePreseneter(String id) {
@@ -67,7 +71,7 @@ public class TeamsFragment extends BaseFragment implements TeamsResponse, TeamDe
     team = teams;
   }
 
-  @Override public void teamsInfo(int id) {
-    presenter.buildTeamInfoDialog(id, team);
+  @Override public void teamsInfo(int id, String name, String url) {
+    EventBus.getDefault().post(new TeamDetail(id, name, url));
   }
 }

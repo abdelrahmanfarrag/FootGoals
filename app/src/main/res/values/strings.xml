@@ -52,7 +52,8 @@
   <string name="found">FOUNDED</string>
   <string name="stad_name">STADIUM</string>
   <string name="visit">Visit team\'s website</string>
-
+  <string name="select"><b>Select a team to view its squad</b></string>
+  <string name="added_msg">Team data added successfully to your favorites</string>
   <!-- TAB !-->
   <string name="info">TEAM INFORMATION</string>
   <string name="next_game">NEXT GAMES</string>

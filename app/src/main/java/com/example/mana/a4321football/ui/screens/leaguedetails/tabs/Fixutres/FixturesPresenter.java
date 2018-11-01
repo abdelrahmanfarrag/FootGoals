@@ -7,6 +7,7 @@ import com.example.mana.a4321football.data.model.Fixture;
 import com.example.mana.a4321football.ui.base.BasePresenter;
 import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.HashMap;
@@ -47,6 +48,7 @@ public class FixturesPresenter extends BasePresenter {
     } else {
       if (day > 0) {
         services.getLeagueFixtures(wheel, id, fixtureMap(day));
+        ToastMessages.ShortToastMessage(context,String.valueOf(day));
         views[0].setVisibility(View.GONE);
         views[1].setVisibility(View.GONE);
       }

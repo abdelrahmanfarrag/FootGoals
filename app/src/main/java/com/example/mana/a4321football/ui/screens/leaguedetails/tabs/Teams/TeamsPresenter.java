@@ -18,6 +18,7 @@ import com.example.mana.a4321football.data.model.LeagueTeams;
 import com.example.mana.a4321football.data.model.Teams;
 import com.example.mana.a4321football.data.network.RetrofitServices;
 import com.example.mana.a4321football.ui.base.BasePresenter;
+import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.team_info.TeamInfoAdapter;
 import com.example.mana.a4321football.utility.Dialogs;
 import com.example.mana.a4321football.utility.ImageSettings;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
@@ -58,12 +59,12 @@ public class TeamsPresenter extends BasePresenter {
       services.getTeamInfo(wheel, id);
     }
   }
-
+/*
   private void retryButtonAction(Button button, int id, ProgressWheel wheel) {
     button.setVisibility(View.VISIBLE);
-    loadTeamInfo(id, wheel);
-  }
-
+    button.setOnClickListener(v -> loadTeamInfo(id, wheel));
+  }*/
+/*
   public void buildTeamInfoDialog(int id, Teams team) {
     Dialog dialog =
         Dialogs.transparentDialog(context, R.layout.team_info_dialog, R.style.wide_dialog);
@@ -91,7 +92,7 @@ public class TeamsPresenter extends BasePresenter {
 
     favBtn.setOnClickListener(v -> insertNewTeam(team.getId(), team.getName(), team.getImgUrl()));
     dialog.show();
-  }
+  }*/
 
   @Override public void loadServiceData(Object model) {
     if (model instanceof LeagueTeams) {
@@ -103,40 +104,5 @@ public class TeamsPresenter extends BasePresenter {
     }
   }
 
-  @SuppressWarnings("unchecked")
-  private Single addToFavoriteObservable(int id, String name, String path) {
-    DatabaseConstruct db = DatabaseConstruct.getInstance(context);
 
-    return Single.create((SingleOnSubscribe) emitter -> {
-      if (!emitter.isDisposed()) {
-        Favorite favorite = new Favorite(id, path
-            , name);
-        db.accessPoint().insertMovieToFavorite(favorite);
-        emitter.onSuccess(favorite);
-      }
-    });
-  }
-
-  private SingleObserver addToFavoriteObserver() {
-    return new SingleObserver() {
-      @Override public void onSubscribe(Disposable d) {
-        disposables.add(d);
-      }
-
-      @Override public void onSuccess(Object o) {
-        ToastMessages.ShortToastMessage(context, "ADDED SUCCESSFULLY TO FAVORITES !");
-      }
-
-      @Override public void onError(Throwable e) {
-
-      }
-    };
-  }
-
-  @SuppressWarnings("unchecked") private void insertNewTeam(int id, String name, String path) {
-    addToFavoriteObservable(id, name, path)
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(addToFavoriteObserver());
-  }
 }

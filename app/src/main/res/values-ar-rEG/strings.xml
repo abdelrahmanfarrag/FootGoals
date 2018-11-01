@@ -49,6 +49,10 @@
   <string name="found">أُنشئ</string>
   <string name="stad_name">الاستاد</string>
   <string name="visit">زُر الموقع الالكتروني للفريق</string>
+  <string name="added_msg">تم إضافة الفريق الى الفرق المُفضلة</string>
+
+
+  <string name="select"><b>إختر فريق لترى قائمته الحالية</b></string>
 
 
 

@@ -52,7 +52,8 @@ public class TeamsAdapter extends BaseRecyclerAdapter<LeagueTeams.Teams, BaseRec
 
     @OnClick()
     public void onTeamClicked() {
-      details.teamsInfo(getItemAtPosition(getLayoutPosition()).getId());
+      details.teamsInfo(getItemAtPosition(getLayoutPosition()).getId(),
+          getItemAtPosition(getLayoutPosition()).getName(),getItemAtPosition(getLayoutPosition()).getUrl());
     }
   }
 }
