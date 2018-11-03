@@ -90,7 +90,6 @@ public class Fixtures extends BaseFragment implements FixtureResponse {
     presenter = new FixturesPresenter(getContext(), disposables, this);
     currentMatch = matchDay + incrementDecrement;
     matchDay = currentMatch;
-    ToastMessages.ShortToastMessage(getContext(),String.valueOf(matchDay));
     if (currentMatch > 0) {
       presenter.loadFixtures(fixtureLoader, currentMatch
           , id,

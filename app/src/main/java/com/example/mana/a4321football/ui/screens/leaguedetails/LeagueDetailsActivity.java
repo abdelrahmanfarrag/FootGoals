@@ -22,12 +22,10 @@ import org.greenrobot.eventbus.ThreadMode;
 
 public class LeagueDetailsActivity extends BaseActivity implements PresenterResponse {
 
-  @BindView(R.id.tabs_pages) ViewPager pager;
+  @BindView(R.id.tabs_pages) public ViewPager pager;
   @BindView(R.id.tab_layout) TabLayout tabLayout;
   @BindView(R.id.details_wheel) ProgressWheel wheel;
   @BindView(R.id.league_name) TextView leagueName;
-
-
 
   public static Activity getActivityInstance() {
     return new LeagueDetailsActivity();
@@ -53,6 +51,7 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
     switch (v.getId()) {
       case R.id.league_name:
         getPresenterData(id);
+        pager.setCurrentItem(0, true);
         break;
     }
   }
@@ -72,14 +71,13 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
     getPresenterData(bus.getId());
     leagueName.setText(bus.getName());
     id = bus.getId();
-
   }
 
   private void getPresenterData(String id) {
     if (AppUtils.isOnline(getContext())) {
       LeagueDetailsPresenter presenter =
           new LeagueDetailsPresenter(getContext(), disposables, this);
-      if (id!=null) {
+      if (id != null) {
         presenter.loadDetails(id, wheel);
       }
     }

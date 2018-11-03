@@ -15,6 +15,7 @@ import com.example.mana.a4321football.data.model.Teams;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.ImageSettings;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
+import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import java.util.List;
 import org.greenrobot.eventbus.EventBus;
@@ -80,5 +81,6 @@ public class TeamInfoFragment extends BaseFragment implements InfoResponse {
   @OnClick({ R.id.team_info_follow })
   public void onFavoriteClick() {
     presenter.insertNewTeam(detail.getId(), detail.getName(), detail.getUrl());
+    favoriteBtn.setVisibility(View.GONE);
   }
 }

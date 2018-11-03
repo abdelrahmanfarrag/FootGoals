@@ -51,6 +51,8 @@
   <string name="visit">زُر الموقع الالكتروني للفريق</string>
   <string name="added_msg">تم إضافة الفريق الى الفرق المُفضلة</string>
 
+  <string name="found_msg">هذا الفريق موجود مثلا في المفضلة لك !</string>
+
 
   <string name="select"><b>إختر فريق لترى قائمته الحالية</b></string>
 

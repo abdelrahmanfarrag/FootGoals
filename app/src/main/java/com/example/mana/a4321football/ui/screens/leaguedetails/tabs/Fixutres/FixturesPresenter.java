@@ -48,7 +48,6 @@ public class FixturesPresenter extends BasePresenter {
     } else {
       if (day > 0) {
         services.getLeagueFixtures(wheel, id, fixtureMap(day));
-        ToastMessages.ShortToastMessage(context,String.valueOf(day));
         views[0].setVisibility(View.GONE);
         views[1].setVisibility(View.GONE);
       }

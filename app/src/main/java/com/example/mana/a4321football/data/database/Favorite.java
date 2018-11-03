@@ -2,9 +2,10 @@ package com.example.mana.a4321football.data.database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity
+@Entity(indices = { @Index(value = { "team_id", "crest_url", "team_name" }, unique = true) })
 public class Favorite {
 
   @PrimaryKey(autoGenerate = true)
@@ -16,7 +17,7 @@ public class Favorite {
   @ColumnInfo(name = "team_name")
   private String teamName;
 
-  public Favorite( int teamId, String crestUrl, String teamName) {
+  public Favorite(int teamId, String crestUrl, String teamName) {
     this.teamId = teamId;
     this.crestUrl = crestUrl;
     this.teamName = teamName;

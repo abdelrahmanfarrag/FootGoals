@@ -11,7 +11,9 @@ public abstract class DatabaseConstruct extends RoomDatabase {
 
   public static DatabaseConstruct getInstance(Context context) {
     if (instance == null) {
-      instance = Room.databaseBuilder(context, DatabaseConstruct.class, "favorite.db").build();
+      instance = Room.databaseBuilder(context, DatabaseConstruct.class, "favorite.db")
+          .fallbackToDestructiveMigration()
+          .build();
     }
     return instance;
   }

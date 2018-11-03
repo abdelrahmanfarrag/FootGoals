@@ -1,13 +1,14 @@
 package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
+import android.os.AsyncTask;
 import android.view.View;
 import com.example.mana.a4321football.data.database.DatabaseConstruct;
+import com.example.mana.a4321football.data.database.DbAccessPoint;
 import com.example.mana.a4321football.data.database.Favorite;
 import com.example.mana.a4321football.ui.base.BasePresenter;
 import com.example.mana.a4321football.utility.SharedPreferencesManager;
-import com.example.mana.a4321football.utility.ToastMessages;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.SingleOnSubscribe;
@@ -22,12 +23,14 @@ public class FavoritePresenter extends BasePresenter {
 
   private presenterResponse response;
   private CompositeDisposable disposable;
+  private DatabaseConstruct db;
 
-  public FavoritePresenter(Context context,
+  FavoritePresenter(Context context,
       CompositeDisposable disposable, presenterResponse response) {
     super(context, disposable);
     this.response = response;
     this.disposable = disposable;
+    db = DatabaseConstruct.getInstance(context);
   }
 
   public void getShared(View noFavCont) {
@@ -41,7 +44,6 @@ public class FavoritePresenter extends BasePresenter {
 
   private Single getFavoriteListObservable() {
 
-    DatabaseConstruct db = DatabaseConstruct.getInstance(context);
     return Single.create((SingleOnSubscribe) emitter -> {
       if (!emitter.isDisposed()) {
         List<Favorite> favorite = db.accessPoint().getFavoriteTeams();
@@ -62,7 +64,7 @@ public class FavoritePresenter extends BasePresenter {
       }
 
       @Override public void onError(Throwable e) {
-        Log.d("edini", "onError: " + e.getMessage());
+        //Log.d("edini", "onError: " + e.getMessage());
       }
     };
   }
@@ -74,7 +76,25 @@ public class FavoritePresenter extends BasePresenter {
         .subscribe(getFavoriteListObserver());
   }
 
+  public void deleteItem(int teamId) {
+    new RemoveItemFromFavorite(db.accessPoint()).execute(teamId);
+  }
+
   @Override public void loadServiceData(Object model) {
 
+  }
+
+  @SuppressLint("StaticFieldLeak") private class RemoveItemFromFavorite
+      extends AsyncTask<Integer, Void, Void> {
+    DbAccessPoint dao;
+
+    private RemoveItemFromFavorite(DbAccessPoint dao) {
+      this.dao = dao;
+    }
+
+    @Override protected Void doInBackground(Integer... integers) {
+      dao.deleteSelectedItem(integers[0]);
+      return null;
+    }
   }
 }

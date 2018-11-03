@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.database.Favorite;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
@@ -17,6 +18,7 @@ import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.TeamDetailFragment;
 import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.ImageSettings;
+import com.example.mana.a4321football.utility.ToastMessages;
 import java.util.List;
 import org.greenrobot.eventbus.EventBus;
 
@@ -78,8 +80,14 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
           .post(new TeamDetail(getItemAtPosition(getLayoutPosition()).getTeamId(),
               getItemAtPosition(getLayoutPosition()).getTeamName(),
               getItemAtPosition(getLayoutPosition()).getCrestUrl()));
-
       response.teamData(getItemAtPosition(getLayoutPosition()).getTeamId());
+    }
+
+    @OnLongClick()
+    public boolean onLongClick() {
+      response.teamData(getItemAtPosition(getLayoutPosition()).getTeamId());
+
+      return true;
     }
   }
 }
