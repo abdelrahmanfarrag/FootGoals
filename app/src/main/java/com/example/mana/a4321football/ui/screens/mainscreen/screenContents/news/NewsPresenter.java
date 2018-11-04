@@ -1,10 +1,9 @@
 package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.news;
 
 import android.content.Context;
-import android.view.View;
+
 import com.example.mana.a4321football.data.model.News;
 import com.example.mana.a4321football.ui.base.BasePresenter;
-import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
@@ -15,7 +14,7 @@ public class NewsPresenter extends BasePresenter {
 
   private NewsResponse response;
 
-  public NewsPresenter(Context context, CompositeDisposable disposable, NewsResponse response) {
+  NewsPresenter(Context context, CompositeDisposable disposable, NewsResponse response) {
     super(context, disposable);
     this.response = response;
   }
@@ -27,15 +26,10 @@ public class NewsPresenter extends BasePresenter {
     data.put(Constants.NEWS_KEY, Constants.NEWS_API_KEEY);
     return data;
   }
-  public void loadNews(ProgressWheel wheel, View[] views) {
-    if (!AppUtils.isOnline(context)) {
-      views[0].setVisibility(View.VISIBLE);
-      views[1].setVisibility(View.VISIBLE);
-    } else {
-      services.getLeagueNews(wheel, newsMap());
-      views[0].setVisibility(View.GONE);
-      views[1].setVisibility(View.GONE);
-    }
+
+  public void loadNews(ProgressWheel wheel) {
+
+    services.getLeagueNews(wheel, newsMap());
   }
 
   @Override public void loadServiceData(Object model) {

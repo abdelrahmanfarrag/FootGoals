@@ -14,7 +14,6 @@ import com.example.mana.a4321football.data.model.League;
 import com.example.mana.a4321football.ui.base.BaseActivity;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.StandingAdapter;
 import com.example.mana.a4321football.utility.AppUtils;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -84,15 +83,12 @@ public class LeagueDetailsActivity extends BaseActivity implements PresenterResp
   }
 
   private void tabsSetup() {
-    TabAdapter adapter = new TabAdapter(getSupportFragmentManager());
+    TabAdapter adapter = new TabAdapter(getSupportFragmentManager(), getContext());
     pager.setAdapter(adapter);
     tabLayout.setupWithViewPager(pager);
   }
 
   @Override public void leageDetails(League league) {
-    if (league != null) {
 
-      //      leagueName.setText(league.getName());
-    }
   }
 }

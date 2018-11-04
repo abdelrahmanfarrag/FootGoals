@@ -43,7 +43,7 @@ public class TeamDetailFragment extends BaseFragment {
   public void subscribeToTeamDetailBus(TeamDetail detail) {
 
     if (detail != null) {
-      this.detail = detail;  //hAN3ML 7AGA 5WAGATI ISA 1111
+      this.detail = detail;
       tabsSetup();
       EventBus.getDefault().postSticky(new Tabs(detail));
       //
@@ -52,6 +52,9 @@ public class TeamDetailFragment extends BaseFragment {
       layout.setVisibility(View.INVISIBLE);
     }
   }
+
+
+
 
   @Override public void init() {
   }

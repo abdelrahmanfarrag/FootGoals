@@ -10,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.data.eventbus.Tabs;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.data.model.Teams;
 import com.example.mana.a4321football.ui.base.BaseFragment;
@@ -60,6 +61,13 @@ public class TeamInfoFragment extends BaseFragment implements InfoResponse {
       ImageSettings.settingImage(info.getUrl(), getContext(), teamImg);
       name.setText(info.getName());
     }
+  }
+
+  @Subscribe(sticky = true,threadMode = ThreadMode.MAIN)
+  public void subscribeToTabsBus(Tabs tabs) {
+    name.setVisibility(View.GONE);
+    teamImg.setVisibility(View.GONE);
+    instantiaatePresenter(tabs.getDetails().getId());
   }
 
   private void instantiaatePresenter(int id) {

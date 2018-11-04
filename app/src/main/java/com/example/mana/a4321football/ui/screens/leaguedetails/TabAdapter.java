@@ -1,9 +1,11 @@
 package com.example.mana.a4321football.ui.screens.leaguedetails;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Fixutres.Fixtures;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Standings.Standings;
 import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Scorer.TopScorers;
@@ -11,8 +13,11 @@ import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.TeamsF
 
 public class TabAdapter extends FragmentPagerAdapter {
 
-  TabAdapter(FragmentManager fm) {
+  private Context context;
+
+  TabAdapter(FragmentManager fm, Context context) {
     super(fm);
+    this.context = context;
   }
 
   @Override public Fragment getItem(int position) {
@@ -37,13 +42,13 @@ public class TabAdapter extends FragmentPagerAdapter {
   @Nullable @Override public CharSequence getPageTitle(int position) {
     switch (position) {
       case 0:
-        return "FIXTURES";
+        return context.getResources().getString(R.string.details_fix);
       case 1:
-        return "STANDINGS";
+        return context.getResources().getString(R.string.details_table);
       case 2:
-        return "TEAMS";
+        return context.getResources().getString(R.string.details_teams);
       case 3:
-        return "TOP SCORERS";
+        return context.getResources().getString(R.string.details_score);
       default:
         return "null";
     }

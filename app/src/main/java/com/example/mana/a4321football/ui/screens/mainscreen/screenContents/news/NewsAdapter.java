@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
+import butterknife.OnClick;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.model.News;
 import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
@@ -17,9 +18,12 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class NewsAdapter extends BaseRecyclerAdapter<News.Articles, BaseRecyclerHolder> {
-  public NewsAdapter(
-      List<News.Articles> recyclerItems) {
+  private NewsEvent event;
+
+  NewsAdapter(
+      List<News.Articles> recyclerItems, NewsEvent event) {
     super(recyclerItems);
+    this.event = event;
   }
 
   @NonNull @Override
@@ -52,6 +56,11 @@ public class NewsAdapter extends BaseRecyclerAdapter<News.Articles, BaseRecycler
 
     NewsHolder(View itemView) {
       super(itemView);
+    }
+
+    @OnClick()
+    public void onClick() {
+      event.newsWeb(getItemAtPosition(getLayoutPosition()).getUrl());
     }
   }
 }

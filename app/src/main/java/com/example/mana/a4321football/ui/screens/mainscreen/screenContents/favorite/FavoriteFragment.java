@@ -6,7 +6,10 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+import butterknife.BindColor;
+import butterknife.BindString;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.database.Favorite;
@@ -15,15 +18,23 @@ import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favor
 import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
 import java.util.List;
+import java.util.Objects;
 
 public class FavoriteFragment extends BaseFragment implements presenterResponse {
 
   @BindView(R.id.no_fav_cont) ConstraintLayout noFavLayout;
   @BindView(R.id.list_fav_teams) RecyclerView favTeamsList;
   @BindView(R.id.no_fav_found_tv) TextView noFavTv;
+  @BindView(R.id.fav_cont_container) FrameLayout container;
+
+  @BindString(R.string.delete_team_msg) String msg;
+  @BindString(R.string.delete_team_title) String title;
+  @BindString(R.string.approve_msg) String yes;
+  @BindString(R.string.no_msg) String no;
+
+  @BindColor(R.color.black_b) int lightBlack;
 
   FavoritePresenter presenter;
-  FavoriteAdapter adapter;
 
   public static FavoriteFragment getInstance() {
     return new FavoriteFragment();
@@ -47,14 +58,18 @@ public class FavoriteFragment extends BaseFragment implements presenterResponse 
 
   @Override public void teamData(int id) {
     AlertDialog dialog = new AlertDialog.Builder(getContext())
-        .setTitle("Delete a team ")
-        .setMessage("Are your sure you want to remove this item ?")
-        .setPositiveButton("Yes", (dialog1, which) -> {
+        .setTitle(title)
+        .setMessage(msg)
+        .setPositiveButton(yes, (dialog1, which) -> {
           presenter.deleteItem(id);
           Handler h = new Handler();
-          h.postDelayed(() -> presenter.getFavoriteList(), 1000);
+          h.postDelayed(() -> {
+            presenter.getFavoriteList();
+            Objects.requireNonNull(getContext()).getSupportFragmentManager().beginTransaction()
+                .replace(R.id.no_fav_cont, FavoriteFragment.getInstance()).commit();
+          }, 1000);
         })
-        .setNegativeButton("No", (dialog12, which) -> dialog12.dismiss()).create();
+        .setNegativeButton(no, (dialog12, which) -> dialog12.dismiss()).create();
     dialog.show();
   }
 

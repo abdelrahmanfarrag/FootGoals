@@ -15,10 +15,7 @@ import com.example.mana.a4321football.data.database.Favorite;
 import com.example.mana.a4321football.data.eventbus.TeamDetail;
 import com.example.mana.a4321football.ui.base.BaseRecyclerAdapter;
 import com.example.mana.a4321football.ui.base.BaseRecyclerHolder;
-import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.TeamDetailFragment;
-import com.example.mana.a4321football.utility.FragmentManagement;
 import com.example.mana.a4321football.utility.ImageSettings;
-import com.example.mana.a4321football.utility.ToastMessages;
 import java.util.List;
 import org.greenrobot.eventbus.EventBus;
 
@@ -27,7 +24,7 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
   private presenterResponse response;
   @SuppressLint("StaticFieldLeak") private static Activity activity;
 
-  public FavoriteAdapter(
+  FavoriteAdapter(
       List<Favorite> recyclerItems, presenterResponse response) {
     super(recyclerItems);
     this.response = response;
@@ -42,7 +39,7 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
     this.response = response;
   }
 
-  public static Activity getActivity() {
+  private static Activity getActivity() {
     return activity;
   }
 
@@ -70,7 +67,7 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
     @BindView(R.id.fav_team_crest) ImageView teamCrest;
     @BindView(R.id.fav_team_name) TextView favoriteName;
 
-    public FavoriteHolder(View itemView) {
+    FavoriteHolder(View itemView) {
       super(itemView);
     }
 

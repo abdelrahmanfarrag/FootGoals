@@ -63,6 +63,7 @@ public class LeaguesFragment extends BaseFragment implements LeagueId {
     leaguesList.setHasFixedSize(true);
     leaguesList.setAdapter(
         new LeaguesAdapter(Arrays.asList(leagueName()), Arrays.asList(leagueIcons()), this));
+    assert getContext() != null;
     leaguesList.addItemDecoration(
         new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
   }

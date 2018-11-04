@@ -9,6 +9,7 @@
     android:elevation="20dp"
     app:cardCornerRadius="6dp"
     android:layout_margin="@dimen/x_small_margin"
+    android:layoutDirection="ltr"
     tools:targetApi="lollipop">
 
   <android.support.constraint.ConstraintLayout

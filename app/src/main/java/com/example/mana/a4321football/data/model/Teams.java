@@ -13,9 +13,14 @@ public class Teams {
   @SerializedName("squad") private List<Squad> squads;
   @SerializedName("area") private Area area;
   @SerializedName("founded") private int founded;
+  @SerializedName("website") private String web;
 
   public int getFounded() {
     return founded;
+  }
+
+  public String getWeb() {
+    return web;
   }
 
   public int getId() {

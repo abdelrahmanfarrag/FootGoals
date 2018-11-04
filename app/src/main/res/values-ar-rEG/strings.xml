@@ -50,12 +50,32 @@
   <string name="stad_name">الاستاد</string>
   <string name="visit">زُر الموقع الالكتروني للفريق</string>
   <string name="added_msg">تم إضافة الفريق الى الفرق المُفضلة</string>
+  <string name="no_connect">نأسف ولكن لا يوجد لديك اتصال بالانترنت في الوقت الحالي \n افحص شبكة الانترنت الخاص بك  </string>
 
   <string name="found_msg">هذا الفريق موجود مثلا في المفضلة لك !</string>
   <string name="no_fav_found">نأسف , لكن لا يوجد حاليا فريق في قائمة الفرق المفضلة لديك . حاول ان تضيف واحداً من خلال الذهاب الى البطولات</string>
+  <string name="tech_error">يبدو أنه يوجد خطأ تقني . حاول لاحقا بعد بضع ثواني !</string>
 
 
   <string name="select"><b>إختر فريق لترى قائمته الحالية</b></string>
+
+  <string name="info">معلومات عن الفريق</string>
+  <string name="next_game">المباريات القادمة</string>
+  <string name="prev_game">المباريات السابقة</string>
+  <string name="squad_tab">قائمة الفريق</string>
+
+  <string name="details_fix">المباريات</string>
+  <string name="details_table">الترتيب</string>
+  <string name="details_teams">الفرق</string>
+  <string name="details_score">الهدافين</string>
+
+  <string name="close_msg">هل انت متأكد من رغبتك في غلق التطبيق ؟</string>
+  <string name="approve_msg">نعم ,أريد ذلك</string>
+  <string name="no_msg">لا</string>
+  <string name="close_title">إغلاق التطبيق</string>
+
+  <string name="delete_team_title">حذف فريق</string>
+  <string name="delete_team_msg">هل انت متأكد من رغبتك في حذف هذا الفريق ؟</string>
 
 
 </resources>

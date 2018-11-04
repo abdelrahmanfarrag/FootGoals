@@ -55,10 +55,26 @@
   <string name="select"><b>Select a team to view its squad</b></string>
   <string name="added_msg">Team data added successfully to your favorites</string>
   <string name="found_msg">Team is already saved in your favorites !</string>
+  <string name="tech_error">It seems like that there is an technical issue \n try again after some seconds</string>
+  <string name="no_connect">Sorry but there is no active network connection in current time \n check your connections and press retry button </string>
   <string name="no_fav_found">Sorry , you do not added a favorite team yet ,try adding one by going inside league details</string>
   <!-- TAB !-->
   <string name="info">TEAM INFORMATION</string>
   <string name="next_game">NEXT GAMES</string>
   <string name="prev_game">PREVIOUS GAMES</string>
+  <string name="squad_tab">SQUAD</string>
+
+  <string name="details_fix">FIXTURES</string>
+  <string name="details_table">STANDING</string>
+  <string name="details_teams">TEAMS</string>
+  <string name="details_score">LEAGUE SCORERS</string>
+
+  <string name="close_msg">Are you sure you want to leave the app ?</string>
+  <string name="approve_msg">Yes i want</string>
+  <string name="no_msg">No</string>
+  <string name="close_title">Close app</string>
+  <string name="delete_team_title">Delete a team</string>
+  <string name="delete_team_msg">Are your sure you want to remove this team ?</string>
+
 
 </resources>

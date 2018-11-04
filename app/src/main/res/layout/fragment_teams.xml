@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/team_cont"
     android:background="@color/darkRed"
+    android:layoutDirection="ltr"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"

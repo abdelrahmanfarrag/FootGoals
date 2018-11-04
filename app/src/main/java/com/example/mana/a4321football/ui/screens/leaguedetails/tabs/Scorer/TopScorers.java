@@ -3,9 +3,6 @@ package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Scorer;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.eventbus.Details;
@@ -21,11 +18,8 @@ public class TopScorers extends BaseFragment implements ScorerResponse {
 
   @BindView(R.id.scorers_list) RecyclerView scorerList;
   @BindView(R.id.scorers_loader) ProgressWheel loader;
-  @BindView(R.id.technical_error_btn) Button errorBtn;
-  @BindView(R.id.technical_error) ImageView errorImg;
 
   TopScorerPresenter presenter;
-  private String id;
 
   public static TopScorers getInstance() {
     return new TopScorers();
@@ -56,9 +50,8 @@ public class TopScorers extends BaseFragment implements ScorerResponse {
   }
 
   private void setupConnectionToPreseneter(String id) {
-    View[] views = { errorBtn, errorImg };
     presenter = new TopScorerPresenter(getContext(), disposables, this);
-    presenter.loadLeagueScorers(id, loader, views);
+    presenter.loadLeagueScorers(id, loader);
   }
 
   @Override public void scorerData(Scorer data) {

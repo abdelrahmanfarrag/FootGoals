@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.example.mana.a4321football.R;
+import com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Teams.team_info.TeamInfoFragment;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.next.Next;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.info.Info;
 import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favorite.teamdetails.tabs.previous.Previous;
@@ -13,7 +14,7 @@ import com.example.mana.a4321football.ui.screens.mainscreen.screenContents.favor
 public class FavoriteTabAdapter extends FragmentPagerAdapter {
   private Context context;
 
-  public FavoriteTabAdapter(FragmentManager fm, Context context) {
+  FavoriteTabAdapter(FragmentManager fm, Context context) {
     super(fm);
     this.context = context;
   }
@@ -22,9 +23,12 @@ public class FavoriteTabAdapter extends FragmentPagerAdapter {
     switch (position) {
       case 0:
         return new Info();
+
       case 1:
-        return new Next();
+        return new TeamInfoFragment();
       case 2:
+        return new Next();
+      case 3:
         return new Previous();
       default:
         return null;
@@ -36,8 +40,10 @@ public class FavoriteTabAdapter extends FragmentPagerAdapter {
       case 0:
         return context.getResources().getString(R.string.info);
       case 1:
-        return context.getResources().getString(R.string.next_game);
+        return "TEAM SQUAD";
       case 2:
+        return context.getResources().getString(R.string.next_game);
+      case 3:
         return context.getResources().getString(R.string.premier_league);
       default:
         return "";
@@ -45,6 +51,6 @@ public class FavoriteTabAdapter extends FragmentPagerAdapter {
   }
 
   @Override public int getCount() {
-    return 3;
+    return 4;
   }
 }

@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,15 +25,12 @@ public class Standings extends BaseFragment implements StandingsResponse, ItemDe
 
   @BindView(R.id.standing_wheel) ProgressWheel wheel;
   @BindView(R.id.league_table) RecyclerView table;
-  @BindView(R.id.technical_error_btn) Button errorBtn;
-  @BindView(R.id.technical_error) ImageView errorImg;
   @BindView(R.id.toggle_container) ConstraintLayout container;
   @BindView(R.id.next_group) Button next;
   @BindView(R.id.prev_group) Button prev;
   @BindView(R.id.group_name) TextView name;
 
   StandingsPresenter presenter;
-  String id;
   private int groupPosition = 0;
   private Standing standingObject;
 
@@ -67,12 +63,10 @@ public class Standings extends BaseFragment implements StandingsResponse, ItemDe
     instantiatePresenter(details.getId());
   }
 
-  @OnClick({ R.id.technical_error_btn, R.id.next_group, R.id.prev_group })
+  @OnClick({ R.id.next_group, R.id.prev_group })
   public void onViewClicked(View v) {
     switch (v.getId()) {
-      case R.id.technical_error_btn:
-        instantiatePresenter(id);
-        break;
+
       case R.id.next_group:
         if (groupPosition != 7) {
           groupPosition++;
@@ -90,9 +84,8 @@ public class Standings extends BaseFragment implements StandingsResponse, ItemDe
 
   private void instantiatePresenter(String id) {
     presenter = new StandingsPresenter(getContext(), disposables, this);
-    View[] views = { errorImg, errorBtn };
     Handler h = new Handler();
-    h.postDelayed(() -> presenter.loadStandings(wheel, views, id), 600);
+    h.postDelayed(() -> presenter.loadStandings(wheel, id), 600);
   }
 
   @Override public void standingResponse(Standing standing) {

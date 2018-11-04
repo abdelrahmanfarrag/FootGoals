@@ -6,9 +6,7 @@ import android.widget.TextView;
 import com.example.mana.a4321football.data.eventbus.EmblemsBus;
 import com.example.mana.a4321football.data.model.Standing;
 import com.example.mana.a4321football.ui.base.BasePresenter;
-import com.example.mana.a4321football.utility.AppUtils;
 import com.example.mana.a4321football.utility.Constants;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.HashMap;
@@ -23,19 +21,12 @@ public class StandingsPresenter extends BasePresenter {
     this.response = response;
   }
 
-  public void loadStandings(ProgressWheel wheel, View[] views, String id) {
+  public void loadStandings(ProgressWheel wheel, String id) {
 
-    if (!AppUtils.isOnline(context)// || LeagueBus.getLeagueID() == null
-        ) {
-      views[0].setVisibility(View.VISIBLE);
-      views[1].setVisibility(View.VISIBLE);
-    } else {
-      if (id !=null) {
+
         services.getLeagueStandings(wheel, id, standingMap());
-        views[0].setVisibility(View.GONE);
-        views[1].setVisibility(View.GONE);
-      }
-    }
+
+
   }
 
   private Map<String, String> standingMap() {
