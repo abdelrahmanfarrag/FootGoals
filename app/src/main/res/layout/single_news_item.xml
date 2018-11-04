@@ -31,7 +31,7 @@
 
     <TextView
         android:id="@+id/news_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/small_margin"
         android:layout_marginTop="@dimen/xx_large_margin"
@@ -39,6 +39,7 @@
         android:padding="@dimen/small_padding"
         android:textColor="@color/whiteColor"
         android:textSize="@dimen/medium_txt_size"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/news_source_name"/>
 
@@ -56,14 +57,15 @@
 
     <TextView
         android:id="@+id/news_source_content"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="@dimen/small_margin"
         android:fontFamily="@font/fredoka_one"
-        android:textSize="@dimen/small_txt_size"
         android:textColor="@color/silverColor"
+        android:textSize="@dimen/small_txt_size"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/news_title"
         app:layout_constraintTop_toBottomOf="@+id/news_title"/>
 

@@ -57,7 +57,7 @@
   <string name="found_msg">Team is already saved in your favorites !</string>
   <string name="tech_error">It seems like that there is an technical issue \n try again after some seconds</string>
   <string name="no_connect">Sorry but there is no active network connection in current time \n check your connections and press retry button </string>
-  <string name="no_fav_found">Sorry , you do not added a favorite team yet ,try adding one by going inside league details</string>
+  <string name="no_fav_found">Sorry , you did not add a favorite team yet ,try adding one by going inside league details</string>
   <!-- TAB !-->
   <string name="info">TEAM INFORMATION</string>
   <string name="next_game">NEXT GAMES</string>

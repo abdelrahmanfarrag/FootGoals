@@ -33,14 +33,7 @@ public class FavoritePresenter extends BasePresenter {
     db = DatabaseConstruct.getInstance(context);
   }
 
-  public void getShared(View noFavCont) {
-    if (SharedPreferencesManager.retrievePref(context) == 0) {
-      noFavCont.setVisibility(View.VISIBLE);
-    } else {
-      //TODO ADD SERVICE TO GET FAVORITE TEAM DATA !
-      noFavCont.setVisibility(View.GONE);
-    }
-  }
+
 
   private Single getFavoriteListObservable() {
 

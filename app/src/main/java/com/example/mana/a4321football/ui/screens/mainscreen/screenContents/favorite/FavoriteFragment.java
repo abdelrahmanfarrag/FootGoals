@@ -47,7 +47,6 @@ public class FavoriteFragment extends BaseFragment implements presenterResponse 
   @Override public void init() {
     presenter = new FavoritePresenter(getContext(), disposables, this);
     presenter.getFavoriteList();
-    presenter.getShared(noFavLayout);
     FavoriteAdapter.setActivity(this.getActivity());
     RecyclerConfigs.setupRecyclerSettings(favTeamsList, getContext(),
         LinearLayoutManager.HORIZONTAL, 0);
