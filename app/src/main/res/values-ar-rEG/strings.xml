@@ -52,11 +52,10 @@
   <string name="added_msg">تم إضافة الفريق الى الفرق المُفضلة</string>
 
   <string name="found_msg">هذا الفريق موجود مثلا في المفضلة لك !</string>
+  <string name="no_fav_found">نأسف , لكن لا يوجد حاليا فريق في قائمة الفرق المفضلة لديك . حاول ان تضيف واحداً من خلال الذهاب الى البطولات</string>
 
 
   <string name="select"><b>إختر فريق لترى قائمته الحالية</b></string>
-
-
 
 
 </resources>

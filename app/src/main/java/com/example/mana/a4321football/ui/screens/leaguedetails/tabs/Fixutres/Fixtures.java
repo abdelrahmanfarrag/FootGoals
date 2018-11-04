@@ -15,7 +15,6 @@ import com.example.mana.a4321football.data.eventbus.MatchDay;
 import com.example.mana.a4321football.data.model.Fixture;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

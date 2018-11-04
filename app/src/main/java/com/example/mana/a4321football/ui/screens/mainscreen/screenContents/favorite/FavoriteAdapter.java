@@ -80,7 +80,6 @@ public class FavoriteAdapter extends BaseRecyclerAdapter<Favorite, BaseRecyclerH
           .post(new TeamDetail(getItemAtPosition(getLayoutPosition()).getTeamId(),
               getItemAtPosition(getLayoutPosition()).getTeamName(),
               getItemAtPosition(getLayoutPosition()).getCrestUrl()));
-      response.teamData(getItemAtPosition(getLayoutPosition()).getTeamId());
     }
 
     @OnLongClick()

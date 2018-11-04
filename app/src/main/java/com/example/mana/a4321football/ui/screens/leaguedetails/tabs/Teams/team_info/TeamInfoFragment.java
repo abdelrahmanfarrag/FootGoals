@@ -15,7 +15,6 @@ import com.example.mana.a4321football.data.model.Teams;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.ImageSettings;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
-import com.example.mana.a4321football.utility.ToastMessages;
 import com.pnikosis.materialishprogress.ProgressWheel;
 import java.util.List;
 import org.greenrobot.eventbus.EventBus;

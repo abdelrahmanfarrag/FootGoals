@@ -56,10 +56,27 @@
         android:id="@+id/fav_cont_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="#1D0101"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_fav_teams"/>
   </android.support.constraint.ConstraintLayout>
 
+
+  <TextView
+      android:id="@+id/no_fav_found_tv"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/fredoka_one"
+      android:text="@string/no_fav_found"
+      android:textColor="@color/whiteColor"
+      android:textAlignment="center"
+      android:visibility="gone"
+      android:padding="@dimen/large_padding"
+      android:textSize="@dimen/medium_txt_size"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>

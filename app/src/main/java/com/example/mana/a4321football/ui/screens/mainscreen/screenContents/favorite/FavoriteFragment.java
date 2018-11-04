@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.database.Favorite;
@@ -18,6 +20,7 @@ public class FavoriteFragment extends BaseFragment implements presenterResponse 
 
   @BindView(R.id.no_fav_cont) ConstraintLayout noFavLayout;
   @BindView(R.id.list_fav_teams) RecyclerView favTeamsList;
+  @BindView(R.id.no_fav_found_tv) TextView noFavTv;
 
   FavoritePresenter presenter;
   FavoriteAdapter adapter;
@@ -56,6 +59,11 @@ public class FavoriteFragment extends BaseFragment implements presenterResponse 
   }
 
   @Override public void favoritedTeams(List<Favorite> favorites) {
-    favTeamsList.setAdapter(new FavoriteAdapter(favorites, this));
+    if (favorites.size() > 0) {
+      noFavTv.setVisibility(View.GONE);
+      favTeamsList.setAdapter(new FavoriteAdapter(favorites, this));
+    } else {
+      noFavTv.setVisibility(View.VISIBLE);
+    }
   }
 }

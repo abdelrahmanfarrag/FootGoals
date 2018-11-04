@@ -55,6 +55,7 @@
   <string name="select"><b>Select a team to view its squad</b></string>
   <string name="added_msg">Team data added successfully to your favorites</string>
   <string name="found_msg">Team is already saved in your favorites !</string>
+  <string name="no_fav_found">Sorry , you do not added a favorite team yet ,try adding one by going inside league details</string>
   <!-- TAB !-->
   <string name="info">TEAM INFORMATION</string>
   <string name="next_game">NEXT GAMES</string>

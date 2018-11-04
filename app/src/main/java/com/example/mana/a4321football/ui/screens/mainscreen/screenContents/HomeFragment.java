@@ -1,14 +1,11 @@
 package com.example.mana.a4321football.ui.screens.mainscreen.screenContents;
 
-import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
 import butterknife.BindView;
-import com.bumptech.glide.Glide;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.PicassoConfigs;
-import com.squareup.picasso.Picasso;
 
 public class HomeFragment extends BaseFragment {
   @BindView(R.id.test_img) ImageView testImage;

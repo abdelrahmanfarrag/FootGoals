@@ -1,7 +1,6 @@
 package com.example.mana.a4321football.ui.screens.mainscreen.screenContents.Leagues;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,13 +12,8 @@ import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.eventbus.Details;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.ui.screens.leaguedetails.LeagueDetailsActivity;
-import com.example.mana.a4321football.utility.AppUtils;
-import com.example.mana.a4321football.utility.Constants;
 import com.example.mana.a4321football.utility.Intents;
-import com.example.mana.a4321football.utility.ToastMessages;
-import java.text.ParseException;
 import java.util.Arrays;
-import java.util.List;
 import org.greenrobot.eventbus.EventBus;
 
 public class LeaguesFragment extends BaseFragment implements LeagueId {

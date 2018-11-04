@@ -1,6 +1,5 @@
 package com.example.mana.a4321football.ui.screens.leaguedetails.tabs.Scorer;
 
-import android.media.Image;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +9,6 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import com.example.mana.a4321football.R;
 import com.example.mana.a4321football.data.eventbus.Details;
-import com.example.mana.a4321football.data.eventbus.LeagueBus;
 import com.example.mana.a4321football.data.model.Scorer;
 import com.example.mana.a4321football.ui.base.BaseFragment;
 import com.example.mana.a4321football.utility.RecyclerConfigs;
